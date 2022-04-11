@@ -1,7 +1,19 @@
-import '../styles/globals.css'
+import '../styles/globals.css';
+import { Provider } from 'react-redux';
+import store from '../redux/store';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+    return (
+        <>
+            <Head>
+                <title>CartAny</title>
+            </Head>
+            <Provider store={store}>
+                <Component {...pageProps} />
+            </Provider>
+        </>
+    );
 }
 
-export default MyApp
+export default MyApp;
