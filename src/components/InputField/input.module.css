@@ -1,0 +1,22 @@
+.subcontent input:focus {
+    outline:2px solid rgb(188, 148, 226);
+}
+
+.contentdiv {
+    padding: 10px;
+}
+
+.subcontent {
+    padding: 0px;
+}
+
+.subcontent input {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    box-shadow: inset 0 0 2px #000000;
+    border-radius: 4px;
+    font-size: 17px;
+    outline-color: #f0f0f0;
+}

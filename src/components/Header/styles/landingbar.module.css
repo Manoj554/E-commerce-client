@@ -1,0 +1,138 @@
+
+.maindiv {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: rgb(73, 72, 72);
+    text-align: center;
+    font-size: 17.3px;
+    font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    background-color: white; 
+    box-shadow: 0px 0px 4px rgb(100, 100, 100);
+    height: 70px;
+    z-index: 1;
+}
+
+.navmargin {
+    height: 70px;
+}
+
+.contentlogo {
+    width: 60px;
+    min-width: 60px;
+    height: 53px;
+    margin: 0 35px;
+    
+
+}
+
+.contentlogo img {
+    
+    height: 100%;
+    width: 100%;
+}
+
+.contentlogin {
+    width: 125px;
+    margin: 0 20px;
+
+}
+
+.spacediv {
+    flex: 1;
+
+}
+
+.navcontent {
+
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: center;
+}
+
+.navcontent li {
+    list-style: none;
+    margin: 0 30px;
+    cursor: pointer;
+}
+
+.logoutbtn {
+    cursor: pointer;
+}
+.navcontent li #orange,
+.contentlogin #orange{
+    cursor: pointer;
+    border-bottom: 0px solid orangered;
+    transition:padding 0.3s,border 0.2s;
+    transition-timing-function: ease;
+}
+
+.navcontent li #orange:hover,
+.contentlogin #orange:hover {
+    padding: 26px 0 20.3px 0;
+    border-bottom: 4px solid orangered;
+    color: rgb(67, 66, 66);
+}
+.navcontent li #green,
+.contentlogin #green{
+    cursor: pointer;
+    border-bottom: 0px solid #00b585;
+    transition:padding 0.3s,border 0.2s;
+    transition-timing-function: ease;
+}
+
+.navcontent li #green:hover,
+.contentlogin #green:hover {
+    padding: 26px 0 20.3px 0;
+    border-bottom: 4px solid #00b585;
+    color: rgb(67, 66, 66);
+}
+.navcontent li #violet,
+.contentlogin #violet{
+    cursor: pointer;
+    border-bottom: 0px solid rgb(162, 55, 162);
+    transition:padding 0.3s,border 0.2s;
+    transition-timing-function: ease;
+}
+
+.navcontent li #violet:hover,
+.contentlogin #violet:hover {
+    padding: 26px 0 20.3px 0;
+    border-bottom: 4px solid rgb(162, 55, 162);
+    color: rgb(67, 66, 66);
+}
+.navcontent li #yellow,
+.contentlogin #yellow{
+    cursor: pointer;
+    border-bottom: 0px solid rgb(220, 220, 0);
+    transition:padding 0.3s,border 0.2s;
+    transition-timing-function: ease;
+}
+
+.navcontent li #yellow:hover,
+.contentlogin #yellow:hover {
+    padding: 26px 0 20.3px 0;
+    border-bottom: 4px solid rgb(250, 220, 0);
+    color: rgb(67, 66, 66);
+}
+
+.navcontent li #log,
+.contentlogin #log{
+    cursor: pointer;
+    border-bottom: 0px solid  #e91458;
+    transition:padding 0.3s,border 0.2s;
+    transition-timing-function: ease;
+}
+
+.navcontent li #log:hover,
+.contentlogin #log:hover {
+    padding: 26px 0 20.3px 0;
+    border-bottom: 4px solid  #e91458;
+    color: rgb(67, 66, 66);
+}
+/* #aaa7a8 */
