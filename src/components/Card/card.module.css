@@ -1,0 +1,113 @@
+.card {
+	cursor: pointer;
+	background-color: #ffffff;
+	margin: 10px;
+	width: 275px;
+	border: 2px solid rgb(233, 230, 230);
+	color: #4b4848;
+	transition: 0.2s;
+}
+
+.card:hover {
+	box-shadow: 0px 0px 10px rgb(190, 190, 190);
+
+}
+
+.imgdiv {
+	width: 100%;
+	height: 310px;
+}
+
+.imgdiv img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.descdiv {
+	padding: 7px;
+}
+
+.descdiv div {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+	padding: 3px 10px;
+}
+
+.branddiv {
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.typediv {
+	font-size: 17px;
+	font-weight: 300;
+}
+
+.pricediv {
+	font-size: 17px;
+	font-weight: 600;
+}
+
+.discspan {
+	font-size: 17px;
+	font-weight: 400;
+	color: orangered;
+}
+
+.buttondiv {
+	display: flex;
+	padding: 0px 15px 10px;
+}
+
+.delete,
+.edit {
+	flex: 1;
+	cursor: pointer;
+	font-size: 23px;
+}
+
+.delete {
+
+	text-align: left;
+}
+
+.edit {
+
+	text-align: right;
+}
+
+.buttondiv button {
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.delete button {
+	background-color: rgb(241, 46, 79);
+	transition: 0.4s;
+}
+
+.edit button {
+	background-color: rgb(34, 179, 179);
+	transition: 0.4s;
+}
+
+.delete button:hover {
+	background-color: rgb(202, 33, 61);
+}
+
+.edit button:hover {
+	background-color: rgb(25, 151, 151);
+
+}
+
+.strike {
+	text-decoration: line-through;
+	font-weight: 400;
+	color: #a19e9e;
+}
