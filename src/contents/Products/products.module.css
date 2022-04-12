@@ -1,0 +1,30 @@
+.flexbox{
+    display: flex;
+}
+.galdiv {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	justify-items: center;
+	grid-row-gap: 1rem;
+	padding-bottom: 1rem;
+}
+
+.noproduct {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: bold;
+	color: blue;
+	padding: 2rem;
+}
+
+@media screen and (max-width: 1430px) {
+	.galdiv {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+}
+
+@media screen and (max-width: 1130px) {
+	.galdiv {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
