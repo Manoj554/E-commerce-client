@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
 import Head from 'next/head';
+import Layout from '../layout/Layout';
 
 function MyApp({ Component, pageProps }) {
     return (
@@ -10,7 +11,9 @@ function MyApp({ Component, pageProps }) {
                 <title>CartAny</title>
             </Head>
             <Provider store={store}>
-                <Component {...pageProps} />
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
             </Provider>
         </>
     );
