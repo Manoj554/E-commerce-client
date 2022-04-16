@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './wishlist.module.css';
-import Card from '../../components/Card/Card';
+import Card from '../../components/CardWishlist/CardWishlist';
 const Wishlist = () => {
     return (
         <div className={styles.maindiv}>

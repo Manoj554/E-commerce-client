@@ -1,6 +1,6 @@
 import React from 'react';
 import {AiFillStar} from 'react-icons/ai';
-import styles from './card.module.css';
+import styles from './cardwishlist.module.css';
 const Card = () => {
     return (
         <div className={styles.maindiv}>
