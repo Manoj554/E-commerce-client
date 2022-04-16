@@ -49,7 +49,7 @@
 	width:200px;
 	display: none;
 	background-color: white;
-	box-shadow: 0px 0px 7px #cccccc;
+	border: 1px solid rgb(230, 230, 230);
 	text-align: left;
 	 
 }
@@ -61,8 +61,8 @@
 	display: block;
 }
 .suggestion .suglst:hover{
-	background-color: grey;
-	color: white;
+	background-color: rgb(230, 230, 230);
+	 
 }
 .suglst{
 	position: relative;
@@ -71,11 +71,11 @@
 	position: absolute;
 	top: 0;
 	z-index: 1;
-	left:200px;
+	left:199px;
 	width:200px;
 	display: none;
 	background-color: white;
-	box-shadow: 0px 0px 7px #cccccc;
+	border: 1px solid rgb(230, 230, 230);
 	text-align: left;
 	 color: #5e5c5d;
 }
