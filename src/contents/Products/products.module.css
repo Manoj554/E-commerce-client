@@ -1,12 +1,17 @@
 .flexbox{
     display: flex;
+	
 }
 .galdiv {
-	display: grid;
+	/* display: grid;
 	grid-template-columns: repeat(4, minmax(0, 1fr));
 	justify-items: center;
 	grid-row-gap: 1rem;
-	padding-bottom: 1rem;
+	padding-bottom: 1rem; */
+	flex: 1;
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
 }
 
 .noproduct {
@@ -17,7 +22,7 @@
 	padding: 2rem;
 }
 
-@media screen and (max-width: 1430px) {
+/* @media screen and (max-width: 1430px) {
 	.galdiv {
 		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
@@ -27,4 +32,4 @@
 	.galdiv {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
-}
+} */
