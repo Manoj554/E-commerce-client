@@ -1,0 +1,65 @@
+.plcordrheader {
+    background-color: blue;
+    padding: 14px;
+    border: 2px solid rgb(226, 234, 249);
+}
+
+.plcordrheader button {
+    margin-right: 20px;
+    padding: 3px 6px;
+    border: none;
+    background-color: white;
+    color: blue;
+    font-weight: 590;
+}
+.plcordrname {
+    display: inline;
+    font-weight: 600;
+}
+/* .body {
+    padding: 15px 20px;
+} */
+.parentlst{
+    padding: 10px 15px;
+}
+.parentlst span{
+    margin: 0 13px;
+    vertical-align: middle;
+}
+.parentlst input{
+    height: 2em;
+    width: 1.25em;
+    vertical-align: middle;
+}
+/* css when parentlist radio button is clicked */
+/* .parentlst{
+background-color: rgb(226, 234, 249);
+} */
+.sublist{
+    margin: 8px 0 0 15px;
+}
+.sublist p{
+    margin: 10px 10px;
+}
+.subsublist{
+    display: block;
+}
+.subsubdiv{
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto auto;
+    grid-row-gap: 15px;
+}
+.atmcardsublist p{
+    margin: 5px;
+}
+.atmcardsublist input{
+    width: auto;
+    margin: 5px;
+}
+.btnpay button{
+    padding: 10px 20px;
+    background-color: blueviolet;
+    color: white;
+    border: none;
+}
