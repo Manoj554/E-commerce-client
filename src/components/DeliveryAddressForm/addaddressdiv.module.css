@@ -1,0 +1,110 @@
+.plcordrdiv {
+    box-shadow: 0px 0px 5px rgb(194, 190, 190);
+    margin-top: 20px;
+}
+
+.plcordrheader {
+    background-color: blue;
+    padding: 14px;
+    border: 2px solid rgb(239, 242, 248);
+}
+
+.plcordrheader button {
+    margin-right: 20px;
+    padding: 3px 6px;
+    border: none;
+    background-color: white;
+    color: blue;
+    font-weight: 590;
+}
+
+.plcordrname {
+    display: inline;
+    font-weight: 600;
+}
+
+.plcordrdetails p {
+    margin-left: 40px;
+}
+
+.body {
+    background-color: rgb(239, 242, 248);
+    padding: 15px 25px;
+}
+/* .radiobtn{
+    display: inline;
+} */
+
+.radiobtn input {
+    height: 1.5em;
+    width: 1.25em;
+}
+.addrfrstline{
+    display: flex;
+    justify-content:space-between;
+    margin-top: -24px;
+}
+
+.frstlinevalue {
+    display: inline;
+    margin-left: 30px;
+    font-weight: 500;
+}
+
+.frstlinevalue span {
+    margin: 0 50px;
+    font-weight: 600;
+    font-size: 14px;
+    color: rgb(12, 12, 199);
+    background-color: rgb(192, 186, 245);
+    padding: 1px 7px;
+    border-radius: 5px;
+}
+.edit{
+    font-weight: 600;
+    font-size: 14px;
+    color: rgb(12, 12, 199);
+    
+}
+.scndline {
+    font-weight: normal;
+    display: block;
+    margin: 12px 31px;
+}
+.scndline span{
+    font-weight: 500;
+}
+
+.btsavehere button {
+    padding: 13px 20px;
+    font-size: 15px;
+    font-weight: 549;
+    background-color: rgb(247, 116, 22);
+    cursor: pointer;
+    color: white;
+    border: none;
+    margin-left: 30px;
+}
+
+.btsavehere button:hover {
+    background-color: rgb(251, 89, 8);
+    font-weight: 550;
+}
+/* css when radio button is not checked */
+.notselected{
+    padding: 15px 25px;
+}
+
+.addnewaddress{
+    color: blue;
+    font-weight: 640;
+    font-size: medium;
+    padding: 12px;
+    margin: 12px 0 20px 0;
+    box-shadow: 0px 0px 5px rgb(194, 190, 190);
+}
+.addnewaddress span{
+    margin: 0 20px 0 5px;
+    vertical-align: middle;
+    font-size: large;
+}

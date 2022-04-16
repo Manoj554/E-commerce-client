@@ -1,0 +1,126 @@
+.maindiv {
+    width: 100%;
+    display: flex;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.orderbox {
+    background-color: white;
+    box-shadow: 0px 0px 5px rgb(194, 190, 190);
+    flex: 2;
+    margin: 30px 15px 30px 30px;
+    height: 100%;
+    padding: 8px;
+}
+
+.deliverto {
+    display: flex;
+    margin: 4px;
+    color: rgb(12, 77, 228);
+    border-bottom: 2px solid rgb(235, 231, 231);
+    justify-content: space-between;
+}
+
+.deliverto p {
+    margin: 5px 0 10px 0;
+    width: 60%;
+}
+
+.deliverdetails {
+    margin-left: 7px;
+    color: black;
+}
+
+.changeaddress {
+    margin-top: 10px;
+}
+
+.changeaddress button {
+    flex: 1;
+    background-color: white;
+    cursor: pointer;
+    padding: 11px;
+    font-size: medium;
+    border: 1px solid rgb(12, 77, 228);
+    color: rgb(12, 77, 228);
+    border-radius: 7px;
+}
+
+.changeaddress button:hover {
+    background-color: rgb(12, 77, 228);
+    color: white;
+    border: none;
+}
+
+.mycartheader {
+    margin: 10px 5px;
+    font-size: medium;
+    font-weight: 500;
+
+}
+
+/* pricebox css starts */
+.pricebox {
+    background-color: white;
+    box-shadow: 0px 0px 5px rgb(194, 190, 190);
+    flex: 1;
+    margin: 30px 35px 15px 10px;
+    position: sticky;
+    top: 30px;
+    height: 100%;
+}
+
+.pricedetails {
+    font-weight: 700;
+    margin: 20px 10px;
+}
+
+.priceboxvaluenames {
+    margin: 20px 10px;
+}
+
+.leftnameside {
+    display: inline;
+}
+
+.rightvalueside {
+    float: right;
+    margin-right: 20px;
+}
+
+.discount {
+    color: rgb(7, 165, 7);
+}
+
+.totalamount {
+    border-top: 2px solid rgb(235, 231, 231);
+    border-bottom: 2px solid rgb(235, 231, 231);
+    padding: 15px 0px;
+    font-weight: 600;
+}
+
+.totaldiscount {
+    color: rgb(7, 165, 7);
+    font-weight: 600;
+}
+
+.placeorderbtn {
+    float: right;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.placeorderbtn button {
+    flex: 1;
+    background-color: rgb(191, 11, 207);
+    cursor: pointer;
+    padding: 10px 40px;
+    font-size: large;
+    color: white;
+    border: none;
+    font-weight: 549;
+}
+
+.placeorderbtn button:hover {
+    background-color: rgb(170, 11, 185);
+    font-weight: 550;
+}
