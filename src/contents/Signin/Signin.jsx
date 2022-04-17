@@ -1,38 +1,37 @@
-// import React, { useEffect, useState } from 'react';
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import { FaGoogle } from "react-icons/fa";
 import styles from './signin.module.css';
 import Input from "../../components/InputField/Input";
 import Link from 'next/link';
-// import Skeleton from '../components/Loader/Skeleton';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { signInAction } from '../redux/actions';
-// import { useRouter } from 'next/router';
+import Skeleton from '../../components/Loader/Skeleton';
+import { useDispatch, useSelector } from 'react-redux';
+import { signInAction } from '../../redux/actions';
+import { useRouter } from 'next/router';
 
 
 const Signin = () => {
-    // const [formData, setFormData] = useState({ user: '', password: '' });
-    // const dispatch = useDispatch();
-    // const auth = useSelector(state => state.auth);
-    // const router = useRouter();
+    const [formData, setFormData] = useState({ user: '', password: '' });
+    const dispatch = useDispatch();
+    const auth = useSelector(state => state.auth);
+    const router = useRouter();
 
-    // const handleChange = (e) => {
-    //     setFormData({ ...formData, [e.target.name]: e.target.value });
-    // }
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     dispatch(signInAction(formData, setFormData));
-    // }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(signInAction(formData, setFormData));
+    }
 
-    // if (auth.authenticate) {
-    //     router.push('/');
-    // }
+    if (auth.authenticate) {
+        router.push('/');
+    }
 
     return (
         <>
             <div className={styles.backimg}>
-                <form className={styles.signinform}  >
+                <form className={styles.signinform} autoComplete='off' onSubmit={handleSubmit} >
                     <div className={styles.maindiv}>
                         <div className={styles.contentdiv}>
                             <div className={styles.headmargin}>
@@ -40,7 +39,7 @@ const Signin = () => {
                             </div>
                         </div>
                     </div>
-                    {/* {auth.loading ? <Skeleton login /> : ( */}
+                    {auth.loading ? <Skeleton login /> : (
                         <>
                             <div className={styles.maindiv}>
                                 <Input
@@ -48,8 +47,8 @@ const Signin = () => {
                                     type="text"
                                     placeholder="Enter your email or phone number"
                                     name="user"
-                                    // value={formData.user}
-                                    // onChange={handleChange}
+                                    value={formData.user}
+                                    onChange={handleChange}
                                 />
 
                                 <Input
@@ -57,8 +56,8 @@ const Signin = () => {
                                     type="password"
                                     placeholder="Enter your password"
                                     name="password"
-                                    // value={formData.password}
-                                    // onChange={handleChange}
+                                    value={formData.password}
+                                    onChange={handleChange}
                                 />
 
                                 <div className={styles.contentdiv}>
@@ -81,7 +80,8 @@ const Signin = () => {
                                 </div>
 
                             </div>
-                            </> {/* )} */}
+                        </>
+                    )}
                     <div className={styles.helper}>
                         <p>New to Cartany? <span>
                             <Link href="/signup">

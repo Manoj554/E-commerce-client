@@ -1,25 +1,17 @@
-// import React, { useEffect } from 'react';
+import React from 'react';
 import style from './styles/navbar.module.css';
 import Link from 'next/link';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { signOutAction } from '../../redux/actions';
-// import { useRouter } from 'next/router';
-import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { signOutAction } from '../../redux/actions';
+
 
 const Navbar = () => {
-    // const auth = useSelector(state => state.auth);
-    // const dispatch = useDispatch();
-    // const router = useRouter();
+    const auth = useSelector(state => state.auth);
+    const dispatch = useDispatch();
 
-    // const handleLogout = () => {
-    //     dispatch(signOutAction());
-    // }
-
-    // useEffect(() => {
-    //     if (auth.authenticate) {
-    //         router.push('/');
-    //     }
-    // }, [auth.authenticate]);
+    const handleLogout = () => {
+        dispatch(signOutAction());
+    }
 
     return (
         <>
@@ -50,13 +42,13 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className={style.contentlogin}>
-                    {/* {auth.authenticate ? (
+                    {auth.authenticate ? (
                         <a className={style.logoutbtn} onClick={handleLogout}>Logout</a>
-                    ) : ( */}
+                    ) : (
                         <Link href="/signin">
                             <a>Login</a>
                         </Link>
-                    {/* )}*/}
+                    )}
 
                 </div>
             </div>
