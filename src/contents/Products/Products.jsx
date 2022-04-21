@@ -43,8 +43,7 @@ const Products = () => {
                             <Card />
                             <Card />
                             <Card />
-                            <Card />
-                            <Card />
+                            
                         {/* </>
                     ) : (
                         searchedProduct.length > 0 ? Mapping(searchedProduct) : Mapping(products)

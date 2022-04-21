@@ -1,111 +1,84 @@
-.recombardiv {
+.maindiv{
 	display: flex;
-	flex-wrap: nowrap;
-    align-items: center;
-	background-color: white;
-	border-bottom: 2px solid rgb(233, 230, 230);
-	font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-	color: rgb(100, 100, 100);
-	padding: 20px 30px;
+	flex-direction: row;
+	height: 70px;
+	justify-content:center;
+	align-items: center;
+	border-bottom: 1px solid rgb(227, 227, 227);
+	color: #5e5c5d;
+	font-size: 17.3px;
+	text-align: center;
 }
-
-
-.recombardiv div {
-	flex: 1;
-
-
-}
-
-.adddiv {
-    font-size: 25px;
-	font-weight: 600;
-	text-align: left;
-}
-
-.adddiv button {
-	background-color: rgb(16, 143, 227);
-	font-size: 18px;
-	border: none;
-	color: white;
-	font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-	border-radius: 3px;
-	padding: 10px 10px;
-	transition: 0.4s;
-}
-
-.searchdiv ul {
-	list-style-type: none;
-	display: flex;
-	margin: 0;
-	padding: 0;
-	float: right;
-
-}
-
-.searchdiv li {
-	color: #696e79;
-	padding: 0 20px;
-}
-
-.searchbox {
-	display: flex;
-	border: 2px solid #f5f5f6;
-}
-
-.searchbox button {
-	color: #696e79;
-	font-size: 16px;
-	background-color: #f5f5f6;
-	border-radius: 0;
-	border: none;
-	padding: 5px 10px 0;
-}
-
-.searchdiv input,
-.searchdiv select {
-
-	border: none;
-	color: #696e79;
-
-}
-
-.searchdiv input {
-	background-color: #f5f5f6;
-	padding: 14px;
-	width: 400px;
-}
-
-.searchdiv input::placeholder {
-	color: #878b94;
-	;
-	opacity: 1;
-}
-
-.searchdiv input:focus {
-	outline: none;
-	background-color: white;
-}
-
-.searchdiv select {
-	padding: 13px;
-	width: 250px;
-	background-color: white;
-	border: 1px solid rgb(233, 230, 230);
-}
-
-
-.adddiv button:hover,
-.searchdiv select:hover,
-.searchbox button {
+.content{
 	cursor: pointer;
+	margin: 0 40px;
+	display: flex;
+    align-items: center;
+    padding: 23px 20px;
+    justify-content: center; 
+	transition: 0.3s;
+	border-bottom: 3px solid white;
+	position: relative;
 }
-
-.searchbox button:hover {
-	color: black;
-
+  
+ #green:hover{
+	  
+	  border-bottom: 3px solid green;
+ }
+  #orange:hover{
+	  
+	border-bottom: 3px solid rgb(232, 139, 0);
 }
-
-.adddiv button:hover {
-	background-color: rgb(16, 133, 211);
-
+ #violet:hover{
+	  
+	border-bottom: 3px solid violet;
+}
+ #pink:hover{
+	  
+	border-bottom: 3px solid pink;
+}
+ #yellow:hover{
+	  
+	border-bottom: 3px solid rgb(193, 193, 0);
+}
+.suggestion{
+	font-size: 13px;
+	position: absolute;
+	z-index: 1;
+	top:69px;
+	width:200px;
+	display: none;
+	background-color: white;
+	border: 1px solid rgb(230, 230, 230);
+	text-align: left;
+	 
+}
+.suggestion .suglst{
+	padding: 15px;
+	 
+}
+.content:hover .suggestion{
+	display: block;
+}
+.suggestion .suglst:hover{
+	background-color: rgb(230, 230, 230);
+	 
+}
+.suglst{
+	position: relative;
+}
+.subsuggestion{
+	position: absolute;
+	top: 0;
+	z-index: 1;
+	left:199px;
+	width:200px;
+	display: none;
+	background-color: white;
+	border: 1px solid rgb(230, 230, 230);
+	text-align: left;
+	 color: #5e5c5d;
+}
+.suglst:hover .subsuggestion{
+	display: block;
 }

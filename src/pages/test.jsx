@@ -12,7 +12,7 @@ import Productdesc from '../contents/Products/Productdesc';
 const test = () => {
   return (
     <>
-    <Landingbar/>
+    <Navbar/>
    
     <Products/>
     {/* <SideBar/> */}

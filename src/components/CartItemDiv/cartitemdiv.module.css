@@ -1,0 +1,108 @@
+.maindiv {
+    border: 2px solid rgb(235, 231, 231);
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.headerdiv {
+    display: flex;
+}
+
+.maindiv img {
+    height: 158px;
+    width: 140px;
+}
+
+.details {
+    margin: 4px 15px;
+    font-weight: 500;
+}
+
+.detailsseller {
+    margin: 18px 0;
+}
+
+.pricesingleline {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.detailsgrey {
+    color: grey;
+    font-weight: normal;
+}
+
+.cross {
+    text-decoration: line-through;
+}
+
+.greenoff {
+    color: rgb(7, 165, 7);
+}
+
+.deliverydiv{
+    margin-bottom: 8px;
+    display: flex;
+    
+}
+.deliverydiv h3{
+    color: blue;
+    font-size: larger;
+    margin-right: 3px;
+}
+.delvryby{
+    color: grey;
+    font-weight: normal;
+}
+.footerdiv {
+    display: flex;
+    padding-top: 3px;
+}
+
+.qntychng {
+    padding: 1px 6px;
+    margin-right: 6px;
+    margin-left: 3px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid rgb(170, 162, 162);
+    font-size: large;
+    font-weight: 500;
+}
+
+.qntychng:hover {
+    cursor: pointer;
+    border: 1px solid black;
+    font-weight: 700;
+}
+
+.decrease {
+    padding: 1.5px 7.5px;
+}
+
+.qnty input {
+    width: 30px;
+    height: 25px;
+    margin: 0px 12px 0 9px;
+}
+
+.movetowishlist {
+    margin: 0 15px;
+    background-color: white;
+    border: none;
+    font-size: medium;
+    font-weight: 500;
+}
+
+.movetowishlist:hover {
+    cursor: pointer;
+    color: blue;
+    font-weight: 600;
+}
+
+.remove {
+    border-left: 2px solid rgb(218, 211, 211);
+    padding-left: 32px;
+}
