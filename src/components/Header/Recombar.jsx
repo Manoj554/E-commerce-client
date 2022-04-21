@@ -1,183 +1,60 @@
 import React from 'react'
 import styles from './styles/recombar.module.css';
 import Link from 'next/link';
-//, { useEffect, useState } 
-// import { useDispatch, useSelector } from 'react-redux';
-// import { searchFieldAction, searchProductByCategoryAction } from '../../redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllProducts, getProductByCategory, getProductsByRootCategory } from '../../redux/actions';
+import { useRouter } from 'next/router';
+
+const SubCategory = ({ id, name, children, handleClick, i, handleClick2 }) => {
+	return (
+		<>
+			<div key={id} className={styles.content} id={i % 2 == 0 ? styles.violet : styles.orange}>
+				<span onClick={handleClick2.bind(this, { name: name, id: id })}>
+					{name}
+				</span>
+				{children.length > 0 && (
+					<>
+						<div className={styles.suggestion}>
+							{children.map((val) => (
+								<div key={val.id} className={styles.suglst} onClick={handleClick.bind(this, { name: val.name, id: val.id })} >{val.name}
+								</div>
+							))}
+						</div>
+					</>
+				)}
+			</div>
+		</>
+	)
+}
 
 const Recombar = () => {
-	// const category = useSelector(state => state.category);
-	// const [searchField, setSearrchField] = useState('');
-	// const [searchByCategory, setSearchByCategory] = useState('');
-	// const dispatch = useDispatch();
+	const { loading, categories } = useSelector(state => state.category);
+	const dispatch = useDispatch();
+	const router = useRouter();
 
-	// const handleSetCategory = (e) => {
-	// 	setSearchByCategory(e.target.value);
-	// 	if (e.target.value !== '') {
-	// 		dispatch(searchProductByCategoryAction(e.target.value));
-	// 	}
-	// }
+	const handleClick = (val) => {
+		dispatch(getProductByCategory(val, router));
+	}
 
-	// useEffect(() => {
-	// 	if (searchField.length >= 3) {
-	// 		dispatch(searchFieldAction(searchField));
-	// 	}
-	// 	if (searchField.length == 0) {
-	// 		dispatch(searchFieldAction(searchField));
-	// 	}
-	// }, [searchField]);
+	const handleClick2 = (val) => {
+		dispatch(getProductsByRootCategory(val, router));
+	}
+
+	const handleAllClick = () => {
+		dispatch(getAllProducts());
+		router.push('/products')
+	}
+
 	return (
 		<>
 			<div className={styles.maindiv}>
-				<div className={styles.content} id={styles.green}>
-					<span >
-						Electronics
-					</span>
-					<div className={styles.suggestion}>
-						<div className={styles.suglst}>Mobiles
-						
-							<div className={styles.subsuggestion}>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-							</div>
-						</div>
-						<div className={styles.suglst}>Laptops
-						<div className={styles.subsuggestion}>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-							</div>
-						</div>
-						<div className={styles.suglst}>Camera
-						<div className={styles.subsuggestion}>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-							</div>
-						</div>
-						<div className={styles.suglst}>Smart Wearables
-						<div className={styles.subsuggestion}>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-							</div>
-						</div>
-						<div className={styles.suglst}>Mobile accesories
-						<div className={styles.subsuggestion}>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-							</div>
-						</div>
-					</div>
+				<div className={styles.content} id={styles.yellow} onClick={handleAllClick}>
+					All Products
 				</div>
-				<div className={styles.content} id={styles.violet}>
-					<span >Men</span>
-					<div className={styles.suggestion}>
-						<div className={styles.suglst}>Topwear
-						
-							<div className={styles.subsuggestion}>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-							</div>
-						</div>
-						<div className={styles.suglst}>Bottomwear
-						<div className={styles.subsuggestion}>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-							</div>
-						</div>
-						<div className={styles.suglst}>Men's Footwear
-						<div className={styles.subsuggestion}>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className={styles.content} id={styles.orange}>
-					<span >Women</span>
-					<div className={styles.suggestion}>
-						<div className={styles.suglst}>Women western wear
-						
-							<div className={styles.subsuggestion}>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-							</div>
-						</div>
-						<div className={styles.suglst}>Women traditional wear
-						<div className={styles.subsuggestion}>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-							</div>
-						</div>
-						<div className={styles.suglst}>Women's Footwear
-						<div className={styles.subsuggestion}>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-							</div>
-						</div>
-						
-					</div>
-				</div>
-				<div className={styles.content } id={styles.pink}>
-					<span >Home and Furniture</span>
-					<div className={styles.suggestion}>
-						<div className={styles.suglst}>Home decor
-						
-							<div className={styles.subsuggestion}>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-							</div>
-						</div>
-						<div className={styles.suglst}>Furniture
-						<div className={styles.subsuggestion}>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-							</div>
-						</div>
-						<div className={styles.suglst}>Kitchen tools
-						<div className={styles.subsuggestion}>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-							</div>
-						</div>
-						
-					</div>
-				</div>
-				<div className={styles.content} id={styles.yellow}>
-					<span >Books and more</span>
-					<div className={styles.suggestion}>
-						<div className={styles.suglst}>Books
-						
-							<div className={styles.subsuggestion}>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-							</div>
-						</div>
-						<div className={styles.suglst}>Stationary
-						<div className={styles.subsuggestion}>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-								<div className={styles.suglst}>suggestion</div>
-							</div>
-						</div>
-						
-						
-					</div>
-					
-				</div>
+				{loading ? <p>Loading categories ...</p> :
+					categories.length > 0 && categories.map((val, i) => (
+						<SubCategory key={val.id} id={val.id} name={val.name} children={val.children} handleClick={handleClick} handleClick2={handleClick2} i={i} />
+					))}
 			</div>
 		</>
 	)

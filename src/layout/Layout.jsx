@@ -1,24 +1,25 @@
 import React, { useEffect } from 'react';
-import Navbar from '../components/Header/Navbar';
 import Footer from '../components/Footer/Footer';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import { userLoggedInStatus } from '../redux/actions';
 import Nprogress from 'nextjs-progressbar';
+import Navbar from '../components/Header/Navbar';
+import { getAllCategories, getAllProducts } from '../redux/actions';
 
 const Layout = ({ children }) => {
     // const auth = useSelector(state => state.auth);
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     if (!auth.authenticate) {
-    //         dispatch(userLoggedInStatus());
-    //     }
-    // }, [auth.authenticate]);
+    useEffect(() => {
+        dispatch(getAllCategories());
+        dispatch(getAllProducts());
+    }, []);
 
     return (
         <div>
             <Nprogress
-                height={6}
+                height={3}
+                color="white"
             />
             <Navbar />
             {children}

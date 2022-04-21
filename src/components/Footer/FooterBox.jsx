@@ -1,20 +1,19 @@
 import React from 'react';
 import style from './footer.module.css';
 
-const FooterBox = () => {
+const FooterBox = ({ title, contents }) => {
     return (
         <>
             <div className={style.fbox}>
-                <h3>Online Shoping</h3>
+                <h3>{title}</h3>
                 <ul>
-                    <li>Men</li>
-                    <li>Women</li>
-                    <li>Kids</li>
-                    <li>More</li>
+                    {contents.map(val => (
+                        <li>{val}</li>
+                    ))}
                 </ul>
             </div>
         </>
     )
 }
 
-export default FooterBox
+export default FooterBox;

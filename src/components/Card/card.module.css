@@ -1,4 +1,5 @@
 .card {
+	max-height: 460px;
 	cursor: pointer;
 	background-color: #ffffff;
 	margin: 10px;
@@ -6,6 +7,7 @@
 	border: 2px solid rgb(233, 230, 230);
 	color: #4b4848;
 	transition: 0.2s;
+
 }
 
 .card:hover {

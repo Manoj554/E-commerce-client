@@ -1,19 +1,11 @@
 import React from 'react';
 import style from './styles/navbar.module.css';
 import Link from 'next/link';
-<<<<<<< HEAD
-// import { useDispatch, useSelector } from 'react-redux';
-// import { signOutAction } from '../../redux/actions';
-// import { useRouter } from 'next/router';
-import React from 'react'
-import { VscAccount } from 'react-icons/vsc';
-import { BsCart3 } from "react-icons/bs";
-import { AiFillHeart } from "react-icons/ai";
+import { FaUserCircle, FaShoppingCart, FaHeart } from 'react-icons/fa';
 import { GoSearch } from 'react-icons/go';
-=======
 import { useDispatch, useSelector } from 'react-redux';
 import { signOutAction } from '../../redux/actions';
->>>>>>> manoj
+import Recombar from './Recombar';
 
 
 const Navbar = () => {
@@ -27,10 +19,10 @@ const Navbar = () => {
     return (
         <>
             <div className={style.maindiv}>
-                <div className={style.contentlogo}><img src="/Cartanyorangecrop.png" /></div>
-                <div className={style.spacediv}>
-
-                </div>
+                <Link href="/" passHref>
+                    <div className={style.contentlogo}><img src="/Cartany_white_crop.png" /></div>
+                </Link>
+                <div className={style.spacediv}></div>
                 <div className={style.right}>
                     <div className={style.searchbox}>
                         <button ><GoSearch /></button>
@@ -46,26 +38,26 @@ const Navbar = () => {
                             <a className={style.logoutbtn} onClick={handleLogout}>Logout</a>
                         ) : ( */}
                         <Link href="/signin">
-                            <a id={style.log}><VscAccount /></a>
+                            <a className={style.log}><FaUserCircle /></a>
                         </Link>
                         {/* )}*/}
 
                     </div>
                     <div className={style.contentlogin}>
                         <Link href="/signin">
-                            <a id={style.log}><AiFillHeart /></a>
+                            <a className={style.log}><FaHeart /></a>
                         </Link>
                     </div>
                     <div className={style.contentlogin}>
                         <Link href="/signin">
-                            <a id={style.log}><BsCart3 /></a>
+                            <a className={style.log}><FaShoppingCart /></a>
                         </Link>
                     </div>
                 </div>
             </div>
-            <div className={style.navmargin}>
-
-            </div>
+            <div className={style.navmargin}></div>
+            <Recombar />
+            <div style={{ marginTop: '50px' }}></div>
         </>
     )
 }

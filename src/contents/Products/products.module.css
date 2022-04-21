@@ -1,25 +1,36 @@
-.flexbox{
-    display: flex;
-	
+.flexbox {
+	display: flex;
+	flex-direction: row;
 }
+
+.contentbox {
+	width: 100%;
+}
+
 .galdiv {
-	/* display: grid;
+	display: grid;
+	width: 100%;
 	grid-template-columns: repeat(4, minmax(0, 1fr));
 	justify-items: center;
 	grid-row-gap: 1rem;
-	padding-bottom: 1rem; */
-	flex: 1;
-	display: flex;
-	justify-content: space-evenly;
-	flex-wrap: wrap;
+	padding: 1rem;
 }
 
 .noproduct {
 	text-align: center;
+	flex: 1;
 	font-size: 2rem;
 	font-weight: bold;
 	color: blue;
 	padding: 2rem;
+}
+
+.msgbox {
+	padding: 20px 10px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.2rem;
+	color: rgb(179, 172, 172);
 }
 
 /* @media screen and (max-width: 1430px) {
