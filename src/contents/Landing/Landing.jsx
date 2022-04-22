@@ -1,12 +1,13 @@
 import React from 'react'
 import styles from './landing.module.css';
+import SlideShow from '../../components/SlideShow/SlideShow';
 
 const landing = () => {
     return (
         <>
             <div className={styles.maindiv}>
                 <div className={styles.intro}>
-                    <div className={styles.introimgdiv}>
+                    {/* <div className={styles.introimgdiv}>
                         <img src="/tshirts.jpg" alt="logo" />
                     </div>
                     <div className={styles.introimgdiv}>
@@ -23,7 +24,8 @@ const landing = () => {
                     </div>
                     <div className={styles.introimgdiv}>
                         <img src="/shoe.jpg" alt="logo" />
-                    </div>
+                    </div> */}
+                    <SlideShow />
                 </div>
 
                 <div className={styles.heading}>
