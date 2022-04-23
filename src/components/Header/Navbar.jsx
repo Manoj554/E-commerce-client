@@ -20,7 +20,7 @@ const Navbar = () => {
         <>
             <div className={style.maindiv}>
                 <Link href="/" passHref>
-                    <div className={style.contentlogo}><img src="/Cartany_white_crop.png" /></div>
+                    <div className={style.contentlogo}><img src="/Cartany_old_white_crop.png" /></div>
                 </Link>
                 <div className={style.spacediv}></div>
                 <div className={style.right}>
@@ -32,20 +32,47 @@ const Navbar = () => {
                         // value={searchField}
                         // onChange={(e) => setSearrchField(e.target.value)}
                         />
+                        <div className={style.suggestion}>
+                            <div>suggestion</div>
+                            <div>suggestion</div>
+                            <div>suggestion</div>
+                            <div>suggestion</div>
+                            <div>suggestion</div>
+                            <div>suggestion</div>
+                        </div>
                     </div>
-                    <div className={style.contentlogin}>
+                    <div className={`${style.contentlogin} ${style.profile}`}>
                         {/* {auth.authenticate ? (
                             <a className={style.logoutbtn} onClick={handleLogout}>Logout</a>
                         ) : ( */}
-                        <Link href="/signin">
+                        {/* <Link href="/signin"> */}
                             <a className={style.log}><FaUserCircle /></a>
-                        </Link>
+                        {/* </Link> */}
+                            <div className={style.dropdown}>
+                                <div className={style.welcome}>
+                                    Welcome to Cartany!
+                                </div>
+                                <div className={style.welcome_content}>
+                                    To access account and manage orders
+                                </div>
+                                <div className={style.loginbtn}>
+                                    <button className={style.login}>LOGIN</button>
+                                    <button className={style.signup}>SIGNUP</button>
+                                </div>
+                                <div className={style.dropdown_content}>
+                                    Orders
+                                </div>
+                                <div className={style.dropdown_content}>
+                                    Wishlist
+                                </div>
+                                
+                            </div>
                         {/* )}*/}
 
                     </div>
                     <div className={style.contentlogin}>
                         <Link href="/signin">
-                            <a className={style.log}><FaHeart /></a>
+                            <a className={`${style.log} ${style.heart}`}><FaHeart /></a>
                         </Link>
                     </div>
                     <div className={style.contentlogin}>
