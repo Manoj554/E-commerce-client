@@ -1,6 +1,8 @@
 .maindiv {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: rgb(73, 72, 72);
+    /* color: rgb(134, 134, 134); */
+    background-color: black;
+    color: rgb(233, 233, 233);
 }
 
 /* .intro {
@@ -24,11 +26,32 @@
 } */
 
 .heading {
-    padding: 20px;
+    margin:20px 0;
+    padding: 90px 0;
     text-align: center;
     font-size: 80px;
-}
 
+    background-position: right;
+    background-repeat: no-repeat;
+    
+    background-size: cover;
+}
+.backelec{
+    background-image: url("/xbox2.jpg");
+    color: white;
+}
+.backfash{
+    background-image: url("/nike.png");
+    color: white;
+}
+.backhome{
+    background-image: url("/room.jpg");
+    color: rgb(255, 255, 255);
+}
+.backbook{
+    background-image: url("/mixedstationary2.jpg");
+    color: gray;
+}
 .parallax {
 
 
@@ -43,6 +66,33 @@
     margin: 0;
 }
 
+.text{
+    padding: 30px;
+    
+      
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    background-size: cover;
+}
+.electronics{
+    background-image: url("/laptop.jpg");
+    color: rgb(172, 172, 172);
+}
+.fashback{
+    background-image: url("/saree.jpg");
+    color: rgb(255, 255, 255);
+}
+.chair{
+    background-image: url("/chair.png");
+    background-color: gray;
+    color: rgb(255, 255, 255);
+}
+.notepad{
+    background-image: url("/notepad.jpg");
+    background-color: gray;
+    color: rgb(255, 255, 255);
+}
 .leftcontent {
     position: absolute;
     top: 250px;
@@ -57,6 +107,24 @@
     right: 20px;
     color: white;
 }
+ 
+.chip{
+    position:sticky;
+    top: 400px;
+    
+   
+}
+.chip img{
+    position: relative;
+    left: 389px;
+     
+    width: 212.5px;
+    height: 160px;
+    /* top: 300px;
+    left: 390px;
+    width: 212.5px;
+    height: 160px; */
+}
 
 .orangecart {
     background-image: url("/orangecart.jpg");
@@ -68,9 +136,42 @@
     height: 750px;
 }
 
+.oneplus{
+    background-image: url("/oneplus2.jpg");
+    height: 750px;
+}
+.onepluspart{
+    background-image: url("/onepluspart1.png");
+    height: 750px;
+    background-color: black;
+}
+
+.furniture{
+    background-image: url("/furniture.jpg");
+    height: 750px;
+}
+.openbook{
+    background-image: url("/openbook.jpg");
+    height: 750px;
+}
+.openbook div{
+    padding-top: 17rem;
+    margin-left: 150px;
+    width: 260px;
+    height: 200px;
+    color: rgb(121, 121, 121);
+}
+.furniture div{
+    padding-top: 17rem;
+    margin-left: 150px;
+    width: 260px;
+    height: 200px;
+    color: rgb(255, 255, 255);
+}
 .collection {
     background-image: url("/collection.jpg");
     height: 750px;
+    
 }
 
 .collection div {
@@ -113,6 +214,7 @@
 .fashion .text {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding-top: 150px;
+    height: 35rem;
     text-align: center;
     font-size: 50px;
 }
