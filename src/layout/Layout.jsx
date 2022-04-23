@@ -10,10 +10,10 @@ const Layout = ({ children }) => {
     // const auth = useSelector(state => state.auth);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(getAllCategories());
-        dispatch(getAllProducts());
-    }, []);
+    // useEffect(() => {
+    //     dispatch(getAllCategories());
+    //     dispatch(getAllProducts());
+    // }, []);
 
     return (
         <div>
