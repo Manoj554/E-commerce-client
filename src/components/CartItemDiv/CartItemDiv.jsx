@@ -1,36 +1,53 @@
 import React from 'react';
-import {AiOutlineCheck} from 'react-icons/ai';
+import { AiOutlineCheck } from 'react-icons/ai';
+import { useDispatch } from 'react-redux';
+import { modifyQuantityInCart, removeItemFromCartAction } from '../../redux/actions';
 import styles from './cartitemdiv.module.css';
-const CartItemDiv = () => {
-  return (
-    <div className={styles.maindiv}>
-      <div className={styles.headerdiv}>
-        <img src='./dress.jpg' />
-        <div className={styles.details}>
-          <p>KRISKA blue floral A-line Dress</p>
-          <div className={styles.detailsgrey}>Size:&nbsp;M</div>
-          <div className={`${styles.detailsseller} ${styles.detailsgrey}`}>Sold By: Kriska Creation</div>
-          <div className={styles.pricesingleline}>
-            <div>₹ 949</div>
-            <div className={`${styles.cross} ${styles.detailsgrey}`}>₹ 2499</div>
-            <div className={styles.greenoff}>62% OFF</div>
-          </div>
-          <div className={styles.deliverydiv}>
-            <h3><AiOutlineCheck /></h3><span className={styles.delvryby}>Delivery by&nbsp;</span><span className={styles.deliverydate}>19 Apr 2022</span>
-          </div>
+
+
+const CartItemDiv = ({ l, id, base64, name, price, priceOffered, discount, quantity, wish, }) => {
+    const dispatch = useDispatch();
+
+    const handleQuantityChange = (val) => {
+        dispatch(modifyQuantityInCart(val));
+    }
+
+    const handleRemoveItem = (val) => {
+        dispatch(removeItemFromCartAction(val));
+    }
+
+    return (
+        <div className={styles.maindiv}>
+            <div className={styles.headerdiv}>
+                <img src={base64} />
+                <div className={styles.details}>
+                    <p>{name}</p>
+                    <div className={`${styles.detailsseller} ${styles.detailsgrey}`}>Category: Kriska Creation</div>
+                    <div className={styles.pricesingleline}>
+                        <div>₹ {priceOffered}</div>
+                        <div className={`${styles.cross} ${styles.detailsgrey}`}>₹ {price}</div>
+                        <div className={styles.greenoff}>{discount}% OFF</div>
+                    </div>
+                    <div className={styles.deliverydiv}>
+                        <h3><AiOutlineCheck /></h3><span className={styles.delvryby}>Delivery by&nbsp;</span><span className={styles.deliverydate}>19 Apr 2022</span>
+                    </div>
+                </div>
+            </div>
+            <div className={styles.footerdiv}>
+                <div className={styles.qnty}>
+                    <button className={`${styles.qntychng} ${styles.decrease}`} disabled={quantity <= 1 ? true : false} onClick={handleQuantityChange.bind(this, { id: id, val: -1 })}> - </button>
+                    <div className={styles.quantity}>
+                        {quantity}
+                    </div>
+                    <button className={styles.qntychng} onClick={handleQuantityChange.bind(this, { id: id, val: 1 })}> + </button>
+                </div>
+                {/* <button className={styles.movetowishlist}>MOVE TO WISHLIST</button> */}
+                <button className={`${styles.movetowishlist} ${styles.remove}`} onClick={handleRemoveItem.bind(this, id)}>
+                    REMOVE
+                </button>
+            </div>
         </div>
-      </div>
-      <div className={styles.footerdiv}>
-        <div className={styles.qnty}>
-          <button className={`${styles.qntychng} ${styles.decrease}`}>-</button>
-          <input type="text" name="Quantity" value="1" />
-          <button className={styles.qntychng}>+</button>
-        </div>
-        <button className={styles.movetowishlist}>MOVE TO WISHLIST</button>
-        <button className={`${styles.movetowishlist} ${styles.remove}`}>REMOVE</button>
-      </div>
-    </div>
-  )
+    )
 }
 
 export default CartItemDiv

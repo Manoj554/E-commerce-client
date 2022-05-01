@@ -105,3 +105,10 @@
     background-color: rgb(251, 89, 8);
     font-weight: 550;
 }
+
+.cancelbtn {
+    float: right;
+    background: none;
+    color: blue;
+    font-weight: bold;
+}

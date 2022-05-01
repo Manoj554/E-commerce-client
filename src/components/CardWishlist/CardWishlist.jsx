@@ -1,26 +1,48 @@
 import React from 'react';
-import {AiFillStar} from 'react-icons/ai';
+import { AiFillStar } from 'react-icons/ai';
+import { useDispatch, useSelector } from 'react-redux';
+import { cartAction, wishListAction } from '../../redux/actions';
 import styles from './cardwishlist.module.css';
-const Card = () => {
+
+
+const Card = ({ l, id, base64, name, price, priceOffered, discount, iscart, deleteId, setDeleteId }) => {
+    const auth = useSelector(state => state.auth);
+    const dispatch = useDispatch();
+
+    const handleRemoveFromWishList = (val) => {
+        if (auth.authenticate) {
+            dispatch(wishListAction(val));
+        }
+    }
+
+    const handleMoveToCart = (val) => {
+        if (auth.authenticate) {
+            dispatch(cartAction(val));
+        }
+    }
     return (
         <div className={styles.maindiv}>
             <div className={styles.imgdiv}>
-                <img src="/dress.jpg" />
+                <img src={base64} />
             </div>
             <div className={styles.descdiv}>
-                <div className={styles.branddiv}>KRISKA blue floral A-line Dress</div>
+                <div className={styles.branddiv}>{name}</div>
                 <div className={styles.typediv}> 4.3<span className={styles.star}><AiFillStar /></span>(1232)</div>
-                <div className={styles.pricediv}>₹<span>5245</span>&ensp;<span className={styles.strike}>₹<span>9235</span></span>&ensp;
-                    <span className={styles.discspan}>(<span>23</span>% off)</span>
+                <div className={styles.pricediv}>₹<span>{priceOffered}</span>&ensp;<span className={styles.strike}>₹<span>{price}</span></span>&ensp;
+                    <span className={styles.discspan}>(<span>{discount}</span>% off)</span>
                 </div>
             </div>
             <div className={styles.buttondiv}>
                 <div className={styles.delete}>
-                    <button>DELETE</button>
+                    <button onClick={handleRemoveFromWishList.bind(this, id)}>Remove</button>
                 </div>
-                <div className={styles.edit}>
-                    <button>MOVE&nbsp;TO&nbsp;CART</button>
-                </div>
+                {iscart ? (
+                    <button className={styles.disabled} >Already In cart</button>
+                ) : (
+                    <div className={styles.edit}>
+                        <button onClick={handleMoveToCart.bind(this, id)}>Move to cart</button>
+                    </div>
+                )}
             </div>
         </div>
     )

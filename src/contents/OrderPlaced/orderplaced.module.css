@@ -1,14 +1,11 @@
 .maindiv {
     display: flex;
     justify-content: center;
-    position: relative;
-    height: 300px;
+    margin-top: 100px;
 }
 
 .container {
     padding: 20px 40px;
-    position: absolute;
-    top: 50%;
     align-items: center;
     box-shadow: 0px 0px 5px 5px rgb(217, 210, 210);
     border-radius: 5px;

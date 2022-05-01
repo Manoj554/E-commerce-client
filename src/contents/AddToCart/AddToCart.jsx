@@ -1,80 +1,66 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { MdLocationOn } from 'react-icons/md';
 import styles from './addtocart.module.css';
 import CartItemDiv from '../../components/CartItemDiv/CartItemDiv';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductsFromCartAction } from '../../redux/actions';
+import PriceBox from './PriceBox';
+import Link from 'next/link';
 const AddToCart = () => {
-    return (
-        <div className={styles.maindiv}>
-            <div className={styles.orderbox}>
-                <div className={styles.deliverto}>
-                    <h1><MdLocationOn /></h1>
-                    <div className={styles.deliverdetails}>
-                        Deliver to: <b>Sukanya Sahoo, 769005</b>
-                        <p>Qr No:d/472,Sector-20, Rourkela Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem doloribus est quae nostrum consequatur alias, quas rem inventore.</p>
-                    </div>
-                    <div className={styles.changeaddress}>
-                        <button>
-                            CHANGE&nbsp;ADDRESS
-                        </button>
-                    </div>
-                </div>
-                <div className={styles.mycartheader}>
-                    My Cart (3)
-                </div>
-                <div className={styles.cartitemsdiv}>
-                    <CartItemDiv />
-                    <CartItemDiv />
-                    <CartItemDiv />
-                </div>
-            </div>
+    const { cart, cartList, cartProducts, loading } = useSelector(state => state.cart);
+    const auth = useSelector(state => state.auth);
+    const dispatch = useDispatch();
 
-            <div className={styles.pricebox}>
-                <div className={styles.pricedetails}>
-                    PRICE DETAILS (3 Items)
+    useEffect(() => {
+        if (auth.authenticate && cart != null) {
+            dispatch(getProductsFromCartAction());
+        }
+    }, [auth.authenticate, cart, cartList]);
+
+
+    return (
+        <>
+            {cartProducts.length > 0 ? (
+                <div className={styles.maindiv}>
+                    <div className={styles.orderbox}>
+                        <div className={styles.mycartheader}>
+                            My Cart ({cartProducts.length})
+                        </div>
+                        <div className={styles.cartitemsdiv}>
+                            {cartProducts.length > 0 ? (
+                                <>
+                                    {cartProducts.map((val) => (
+                                        <CartItemDiv
+                                            key={val.id}
+                                            base64={val.productImage}
+                                            name={val.name}
+                                            price={val.price}
+                                            priceOffered={val.priceOffered}
+                                            id={val.id}
+                                            discount={val.percentageOff}
+                                            quantity={cartList.filter(data => data.productId == val.id)[0]?.quantity}
+                                        />
+                                    ))}
+                                    <div className={styles.placeorderbtn}>
+                                        <Link href="/orderconfirmation">
+                                            <button>Continue</button>
+                                        </Link>
+                                    </div>
+                                </>
+                            ) : (
+                                <p>No Product Available</p>
+                            )}
+                        </div>
+                    </div>
+                    <PriceBox />
                 </div>
-                <div className={styles.priceboxvaluenames}>
-                    <div className={styles.leftnameside}>
-                        Total MRP
-                    </div>
-                    <div className={styles.rightvalueside}>
-                        ₹ 8247
-                    </div>
-                </div>
-                <div className={styles.priceboxvaluenames}>
-                    <div className={styles.leftnameside}>
-                        Discount on MRP
-                    </div>
-                    <div className={`${styles.rightvalueside} ${styles.discount}`}>
-                        - ₹ 4205
-                    </div>
-                </div>
-                <div className={styles.priceboxvaluenames}>
-                    <div className={styles.leftnameside}>
-                        Delivery Charge
-                    </div>
-                    <div className={styles.rightvalueside}>
-                        ₹ 100
-                    </div>
-                </div>
-                <div className={`${styles.priceboxvaluenames} ${styles.totalamount}`}>
-                    <div className={styles.leftnameside}>
-                        Total Amount
-                    </div>
-                    <div className={styles.rightvalueside}>
-                        ₹ 4142
-                    </div>
-                </div>
-                <div className={`${styles.priceboxvaluenames} ${styles.totaldiscount}`}>
-                    You will save ₹ 4205 on this order
-                </div>
-                <div className={styles.placeorderbtn}>
-                    <button>
-                        PLACE ORDER
-                    </button>
-                </div>
-            </div>
-        </div>
+
+            ) : (
+                <h1>Cart Is Empty </h1>
+            )}
+        </>
     )
 }
 
-export default AddToCart
+export default AddToCart;

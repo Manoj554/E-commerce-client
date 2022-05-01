@@ -30,7 +30,10 @@
 .body {
     background-color: rgb(239, 242, 248);
     padding: 15px 25px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
 }
+
 /* .radiobtn{
     display: inline;
 } */
@@ -39,9 +42,10 @@
     height: 1.5em;
     width: 1.25em;
 }
-.addrfrstline{
+
+.addrfrstline {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     margin-top: -24px;
 }
 
@@ -60,18 +64,21 @@
     padding: 1px 7px;
     border-radius: 5px;
 }
-.edit{
+
+.edit {
     font-weight: 600;
     font-size: 14px;
     color: rgb(12, 12, 199);
-    
+
 }
+
 .scndline {
     font-weight: normal;
     display: block;
     margin: 12px 31px;
 }
-.scndline span{
+
+.scndline span {
     font-weight: 500;
 }
 
@@ -90,20 +97,23 @@
     background-color: rgb(251, 89, 8);
     font-weight: 550;
 }
+
 /* css when radio button is not checked */
-.notselected{
+.notselected {
     padding: 15px 25px;
 }
 
-.addnewaddress{
+.addnewaddress {
     color: blue;
     font-weight: 640;
+    cursor: pointer;
     font-size: medium;
     padding: 12px;
     margin: 12px 0 20px 0;
     box-shadow: 0px 0px 5px rgb(194, 190, 190);
 }
-.addnewaddress span{
+
+.addnewaddress span {
     margin: 0 20px 0 5px;
     vertical-align: middle;
     font-size: large;
