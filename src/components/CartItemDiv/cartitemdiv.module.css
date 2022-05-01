@@ -42,20 +42,23 @@
     color: rgb(7, 165, 7);
 }
 
-.deliverydiv{
+.deliverydiv {
     margin-bottom: 8px;
     display: flex;
-    
+
 }
-.deliverydiv h3{
+
+.deliverydiv h3 {
     color: blue;
     font-size: larger;
     margin-right: 3px;
 }
-.delvryby{
+
+.delvryby {
     color: grey;
     font-weight: normal;
 }
+
 .footerdiv {
     display: flex;
     padding-top: 3px;
@@ -82,10 +85,17 @@
     padding: 1.5px 7.5px;
 }
 
-.qnty input {
-    width: 30px;
+.qnty {
+    display: flex;
+    margin: 20px 0;
+}
+
+.qnty .quantity {
+    width: 50px;
     height: 25px;
-    margin: 0px 12px 0 9px;
+    margin: 0 10px;
+    text-align: center;
+    border: 1px solid grey;
 }
 
 .movetowishlist {

@@ -10,6 +10,8 @@ const initialState = {
     subCategory: [],
     backupProducts: [],
     filter: false,
+    ItemsBySearchResult: [],
+    productInfo: null
 }
 
 const productReducers = (state = initialState, action) => {
@@ -19,15 +21,16 @@ const productReducers = (state = initialState, action) => {
         case productConstraints.GET_PRODUCTS_BY_CATEGORY_REQUEST:
             state = {
                 ...state,
-                loading: true
+                loading: true,
+                error: null,
+                message: null
             };
             break;
         case productConstraints.GET_PRODUCTS_BY_CATEGORY_FAILED:
             state = {
                 ...state,
                 loading: false,
-                message: null,
-                error: payload?.msg,
+                error: payload,
                 products: [],
                 subCategory: []
             };
@@ -36,7 +39,6 @@ const productReducers = (state = initialState, action) => {
             state = {
                 ...state,
                 loading: false,
-                error: null,
                 message: payload?.msg,
                 products: payload?.data,
                 backupProducts: payload?.data,
@@ -49,15 +51,16 @@ const productReducers = (state = initialState, action) => {
         case productConstraints.GET_PRODUCTS_BY_ROOT_CATEGORY_REQUEST:
             state = {
                 ...state,
-                loading: true
+                loading: true,
+                error: null,
+                message: null
             };
             break;
         case productConstraints.GET_PRODUCTS_BY_ROOT_CATEGORY_FAILED:
             state = {
                 ...state,
                 loading: false,
-                message: null,
-                error: payload?.msg,
+                error: payload,
                 products: [],
                 subCategory: []
             };
@@ -66,7 +69,6 @@ const productReducers = (state = initialState, action) => {
             state = {
                 ...state,
                 loading: false,
-                error: null,
                 message: payload?.msg,
                 products: payload?.data,
                 backupProducts: payload?.data,
@@ -79,15 +81,16 @@ const productReducers = (state = initialState, action) => {
         case productConstraints.FILTER_PRODUCTS_BY_CATEGORY_REQUEST:
             state = {
                 ...state,
-                loading: true
+                loading: true,
+                error: null,
+                message: null
             };
             break;
         case productConstraints.FILTER_PRODUCTS_BY_CATEGORY_FAILED:
             state = {
                 ...state,
                 loading: false,
-                message: null,
-                error: payload?.msg,
+                error: payload,
                 products: state.backupProducts,
             };
             break;
@@ -95,7 +98,6 @@ const productReducers = (state = initialState, action) => {
             state = {
                 ...state,
                 loading: false,
-                error: null,
                 message: payload?.msg,
                 products: payload?.data,
                 filter: true
@@ -106,15 +108,16 @@ const productReducers = (state = initialState, action) => {
         case productConstraints.FILTER_PRODUCTS_BY_SUBROOT_CATEGORY_REQUEST:
             state = {
                 ...state,
-                loading: true
+                loading: true,
+                error: null,
+                message: null
             };
             break;
         case productConstraints.FILTER_PRODUCTS_BY_SUBROOT_CATEGORY_FAILED:
             state = {
                 ...state,
                 loading: false,
-                message: null,
-                error: payload?.msg,
+                error: payload,
                 products: state.backupProducts,
             };
             break;
@@ -122,7 +125,6 @@ const productReducers = (state = initialState, action) => {
             state = {
                 ...state,
                 loading: false,
-                error: null,
                 message: payload?.msg,
                 products: payload?.data,
                 filter: true
@@ -135,26 +137,102 @@ const productReducers = (state = initialState, action) => {
                 ...state,
                 loading: true,
                 products: [],
-                filter: false
+                filter: false,
+                error: null,
+                message: null
             };
             break;
         case productConstraints.GET_ALL_PRODUCT_FAILED:
             state = {
                 ...state,
                 loading: false,
-                message: null,
-                error: payload?.msg,
+                error: payload,
             };
             break;
         case productConstraints.GET_ALL_PRODUCT_SUCCESS:
             state = {
                 ...state,
                 loading: false,
-                error: null,
                 message: payload?.msg,
                 allProducts: payload?.data,
                 subCategory: payload?.subCategory,
                 backupProducts: payload?.data
+            };
+            break;
+
+        //Search By Query
+        case productConstraints.SEARCH_PRODUCT_BY_QUERY_REQUEST:
+            state = {
+                ...state,
+                ItemsBySearchResult: [],
+                error: null,
+                message: null
+            };
+            break;
+        case productConstraints.SEARCH_PRODUCT_BY_QUERY_FAILED:
+            state = {
+                ...state,
+                error: payload,
+            };
+            break;
+        case productConstraints.SEARCH_PRODUCT_BY_QUERY_SUCCESS:
+            state = {
+                ...state,
+                message: payload?.msg,
+                ItemsBySearchResult: payload?.data
+            };
+            break;
+
+        //Get Product BY Name
+        case productConstraints.GET_PRODUCTS_BY_NAME_REQUEST:
+            state = {
+                ...state,
+                loading: true,
+                error: null,
+                message: null
+            };
+            break;
+        case productConstraints.GET_PRODUCTS_BY_NAME_FAILED:
+            state = {
+                ...state,
+                loading: false,
+                error: payload,
+                products: state.backupProducts,
+            };
+            break;
+        case productConstraints.GET_PRODUCTS_BY_NAME_SUCCESS:
+            state = {
+                ...state,
+                loading: false,
+                message: payload?.msg,
+                products: payload?.data,
+                filter: true
+            };
+            break;
+
+        //Get Product Info
+        case productConstraints.GET_PRODUCT_INFO_REQUEST:
+            state = {
+                ...state,
+                loading: true,
+                error: null,
+                message: null,
+                productInfo: null
+            };
+            break;
+        case productConstraints.GET_PRODUCT_INFO_FAILED:
+            state = {
+                ...state,
+                loading: false,
+                error: payload,
+            };
+            break;
+        case productConstraints.GET_PRODUCT_INFO_SUCCESS:
+            state = {
+                ...state,
+                loading: false,
+                message: payload?.msg,
+                productInfo: payload?.data,
             };
             break;
         default:

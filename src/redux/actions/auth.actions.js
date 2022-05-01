@@ -1,19 +1,19 @@
 import axios from 'axios';
 import * as api from '../../apis/apis';
 import { authConstraints } from "./actionConstraints";
+import { errorMessage } from './actionHelper';
 
 export const signUpAction = (userData, setState, defaultValue, router) => async (dispatch) => {
     dispatch({ type: authConstraints.SIGNUP_REQUEST });
 
     try {
         const { data } = await api.signUpApi(userData);
-        alert(data.msg);
         setState(defaultValue);
         dispatch({ type: authConstraints.SIGNUP_SUCCESS, payload: data.msg });
         router.push('/signin');
     } catch (error) {
-        let err = error.response.data.msg;
-        dispatch({ type: authConstraints.SIGNUP_FAILED, payload: err });
+        let msg = errorMessage(error);
+        dispatch({ type: authConstraints.SIGNUP_FAILED, payload: msg });
     }
 }
 
@@ -23,12 +23,15 @@ export const signInAction = (userData, setState, defaultValue) => async (dispatc
     try {
         const { data } = await api.signInApi(userData);
         await axios.post('/api/login', { token: data.user.token });
-        alert(data.msg);
         setState({ user: '', password: '' });
-        dispatch({ type: authConstraints.SIGNIN_SUCCESS, payload: data.msg });
+        dispatch({
+            type: authConstraints.SIGNIN_SUCCESS, payload: {
+                data: data?.user, msg: data?.msg
+            }
+        });
     } catch (error) {
-        let err = error.response.data.msg;
-        dispatch({ type: authConstraints.SIGNIN_FAILED, payload: err });
+        let msg = errorMessage(error);
+        dispatch({ type: authConstraints.SIGNIN_FAILED, payload: msg });
     }
 }
 
@@ -41,8 +44,8 @@ export const signOutAction = () => async (dispatch) => {
         alert(data.msg);
         dispatch({ type: authConstraints.SIGNOUT_SUCCESS });
     } catch (error) {
-        let err = error.response.data.msg;
-        dispatch({ type: authConstraints.SIGNOUT_FAILED, payload: err });
+        let msg = errorMessage(error);
+        dispatch({ type: authConstraints.SIGNOUT_FAILED, payload: msg });
     }
 }
 
@@ -51,10 +54,46 @@ export const userLoggedInStatus = () => async (dispatch) => {
 
     try {
         const { data } = await api.getUserInfoApi();
-        // console.log(data);
-        dispatch({ type: authConstraints.USER_LOGGEDIN });
+        dispatch({
+            type: authConstraints.USER_LOGGEDIN, payload: {
+                data: data?.user, msg: data?.msg
+            }
+        });
     } catch (error) {
         signOutAction();
-        dispatch({ type: authConstraints.USER_NOT_FOUND });
+        let msg = errorMessage(error);
+        dispatch({ type: authConstraints.USER_NOT_FOUND, payload: msg });
+    }
+}
+
+export const addNewDeliveryAddress = (formData) => async (dispatch) => {
+    dispatch({ type: authConstraints.ADD_NEW_ADDRESS_REQUEST });
+
+    try {
+        const { data } = await api.addNewAddressApi(formData);
+        dispatch({
+            type: authConstraints.ADD_NEW_ADDRESS_SUCCESS, payload: {
+                data: data?.addresses, msg: data?.msg
+            }
+        });
+    } catch (error) {
+        let msg = errorMessage(error);
+        dispatch({ type: authConstraints.ADD_NEW_ADDRESS_FAILED, payload: msg });
+    }
+}
+
+export const getAllAddress = () => async (dispatch) => {
+    dispatch({ type: authConstraints.GET_ALL_ADDRESS_REQUEST });
+
+    try {
+        const { data } = await api.getAllAddresssApi();
+        dispatch({
+            type: authConstraints.GET_ALL_ADDRESS_SUCCESS, payload: {
+                data: data?.addresses, msg: data?.msg
+            }
+        });
+    } catch (error) {
+        let msg = errorMessage(error);
+        dispatch({ type: authConstraints.GET_ALL_ADDRESS_FAILED, payload: msg });
     }
 }

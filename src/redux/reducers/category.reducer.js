@@ -15,22 +15,22 @@ const categoryReducers = (state = initialState, action) => {
         case categoryConstraints.GET_ALL_CATEGORY_REQUEST:
             state = {
                 ...state,
-                loading: true
+                loading: true,
+                error: null,
+                message: null
             };
             break;
         case categoryConstraints.GET_ALL_CATEGORY_FAILED:
             state = {
                 ...state,
                 loading: false,
-                message: null,
-                error: payload?.msg,
+                error: payload,
             };
             break;
         case categoryConstraints.GET_ALL_CATEGORY_SUCCESS:
             state = {
                 ...state,
                 loading: false,
-                error: null,
                 message: payload?.msg,
                 categories: payload?.data
             };

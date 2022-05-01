@@ -45,12 +45,14 @@
 	font-size: 17px;
 	font-weight: 300;
 }
-.star{
-    color: rgb(249, 233, 15);
-    font-size: 19px;
-    margin: 5px;
-    vertical-align: middle;
+
+.star {
+	color: rgb(249, 233, 15);
+	font-size: 19px;
+	margin: 5px;
+	vertical-align: middle;
 }
+
 .pricediv {
 	font-size: 17px;
 	font-weight: 600;
@@ -115,4 +117,9 @@
 	text-decoration: line-through;
 	font-weight: 400;
 	color: #a19e9e;
+}
+
+.disabled {
+	color: black;
+	background-color: black;
 }

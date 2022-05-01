@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from './products.module.css';
 import Card from '../../components/Card/Card';
@@ -7,27 +8,33 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const Products = () => {
     const { filter, allProducts, products, loading, subCategory } = useSelector(state => state.product);
+    const { wishList } = useSelector(state => state.cart);
     const [result, setResult] = useState('');
     const router = useRouter();
     const { search } = router.query;
 
     const Mapping = (arr) => {
+        let listarr = wishList.map(data => data.productId);
+
         return arr.map((val) => (
-            <Card
-                key={val.id}
-                base64={val.productImage}
-                name={val.name}
-                price={val.price}
-                priceOffered={val.priceOffered}
-                id={val.id}
-                retailPrice={val.retailPrice}
-                discount={val.percentageOff}
-            />
+            <div key={val.id}>
+                <Card
+                    base64={val.productImage}
+                    name={val.name}
+                    price={val.price}
+                    priceOffered={val.priceOffered}
+                    id={val.id}
+                    wish={listarr.includes(val.id) ? true : false}
+                    retailPrice={val.retailPrice}
+                    discount={val.percentageOff}
+                />
+            </div>
         ));
     }
 
     return (
         <>
+
             <div className={styles.flexbox}>
                 <SideBar category={subCategory} setResult={setResult} />
                 <div className={styles.contentbox}>
@@ -48,7 +55,7 @@ const Products = () => {
                         )
                         }
                     </div>
-                    {!loading && (products.length == 0 || allProducts.length == 0) && filter && (
+                    {!loading && (products.length == 0 && allProducts.length == 0) && filter && (
                         <p className={styles.noproduct}>No Product Available:😕😕😕</p>
                     )}
                 </div>

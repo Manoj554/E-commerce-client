@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './paymentoptions.module.css';
 
-const PaymentOptions = () => {
+const PaymentOptions = ({ setShow }) => {
 
-    const [selectedRadioBtn, setSelectedRadioBtn] = useState();
-    const handleRadioClick = e => setSelectedRadioBtn(e.target.value);
+    const handleRadioClick = e => setShow(false);
     return (
         <div className={styles.maindiv}>
             <div className={styles.plcordrheader}>
@@ -12,7 +11,7 @@ const PaymentOptions = () => {
                 <div className={styles.plcordrname}>PAYMENT OPTIONS</div>
             </div>
             <div className={styles.body}>
-                <div className={styles.parentlst}>
+                {/* <div className={styles.parentlst}>
                     <input type='radio' value='upi' name='paymntradio' onChange={handleRadioClick} /><span>UPI</span>
                     {selectedRadioBtn === "upi" && (
                         <div className={styles.sublist}>
@@ -20,9 +19,9 @@ const PaymentOptions = () => {
                             <p><input type='radio' value='upiid' name='paymntradio1' /><span>Your UPI Id</span></p>
                         </div>
                     )}
-                </div>
+                </div> */}
 
-                <div className={styles.parentlst}>
+                {/* <div className={styles.parentlst}>
                     <input type='radio' value='atmcard' name='paymntradio' onChange={handleRadioClick} /><span>Credit / Debit / ATM Card</span>
                     {selectedRadioBtn === "atmcard" && (
                         <div className={styles.atmcardsublist}>
@@ -33,14 +32,14 @@ const PaymentOptions = () => {
                                 <input type='text' name='cvv' placeholder='CVV' />
                             </p>
                             <div className={styles.btnpay}>
-                                <button>PAY NOW</button>
+                                <button onClick={() => setShow(false)}>PAY NOW</button>
 
                             </div>
                         </div>
                     )}
-                </div>
+                </div> */}
 
-                <div className={styles.parentlst}>
+                {/* <div className={styles.parentlst}>
                     <input type='radio' value='netbanking' name='paymntradio' onChange={handleRadioClick} /><span>Net Banking</span>
                     {selectedRadioBtn === "netbanking" && (
                         <div className={styles.sublist}>
@@ -55,15 +54,15 @@ const PaymentOptions = () => {
                             </div>
                         </div>
                     )}
-                </div>
+                </div> */}
 
                 <div className={styles.parentlst}>
-                    <input type='radio' value='cod' name='paymntradio' onChange={handleRadioClick} /><span>Cash on Delivery</span>
+                    <input type='radio' value='cod' name='paymntradio' onClick={handleRadioClick} /><span>Cash on Delivery</span>
                     {/* {selectedRadioBtn === "cod" && ( */}
-                    <div className={styles.sublist}>
+                    {/* <div className={styles.sublist}>
                         <p><input type='radio' value='phonepe' /><span>PhonePe</span></p>
                         <p><input type='radio' value='upiid' /><span>Your UPI Id</span></p>
-                    </div>
+                    </div> */}
                     {/* )} */}
                 </div>
             </div>

@@ -4,8 +4,9 @@ const initialState = {
     message: null,
     error: null,
     loading: false,
-    token: null,
-    authenticate: false
+    user: null,
+    authenticate: false,
+    addresses: [],
 }
 
 const authReducer = (state = initialState, action) => {
@@ -17,22 +18,22 @@ const authReducer = (state = initialState, action) => {
         case authConstraints.SIGNUP_REQUEST:
             state = {
                 ...initialState,
-                loading: true
+                loading: true,
+                error: null,
+                message: null
             }
             break;
         case authConstraints.SIGNUP_FAILED:
             state = {
                 ...state,
                 loading: false,
-                message: null,
-                error: payload?.msg
+                error: payload
             }
             break;
         case authConstraints.SIGNUP_SUCCESS:
             state = {
                 ...state,
                 loading: false,
-                error: null,
                 message: payload?.msg
             }
             break;
@@ -41,15 +42,16 @@ const authReducer = (state = initialState, action) => {
         case authConstraints.SIGNIN_REQUEST:
             state = {
                 ...state,
-                loading: true
+                loading: true,
+                error: null,
+                message: null
             }
             break;
         case authConstraints.SIGNIN_FAILED:
             state = {
                 ...state,
                 loading: false,
-                message: null,
-                error: payload?.msg,
+                error: payload,
                 authenticate: false
             }
             break;
@@ -58,8 +60,8 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 authenticate: true,
-                error: null,
-                message: payload?.msg
+                message: payload?.msg,
+                user: payload?.data
             }
             break;
 
@@ -67,15 +69,16 @@ const authReducer = (state = initialState, action) => {
         case authConstraints.SIGNOUT_REQUEST:
             state = {
                 ...state,
-                loading: true
+                loading: true,
+                error: null,
+                message: null
             }
             break;
         case authConstraints.SIGNOUT_FAILED:
             state = {
                 ...state,
                 loading: false,
-                message: null,
-                error: payload?.msg
+                error: payload
             }
             break;
         case authConstraints.SIGNOUT_SUCCESS:
@@ -88,22 +91,78 @@ const authReducer = (state = initialState, action) => {
         case authConstraints.CHECKING_LOGIN_STATUS:
             state = {
                 ...state,
-                loading: true
+                loading: true,
+                error: null,
+                message: null
             }
             break;
         case authConstraints.USER_NOT_FOUND:
             state = {
                 ...state,
                 loading: false,
-                authenticate: false
+                authenticate: false,
+                error: payload
             }
             break;
         case authConstraints.USER_LOGGEDIN:
             state = {
                 ...state,
                 authenticate: true,
-                loading: false
+                loading: false,
+                message: payload?.msg,
+                user: payload?.data
             }
+            break;
+
+        //Get All Address
+        case authConstraints.GET_ALL_ADDRESS_REQUEST:
+            state = {
+                ...state,
+                loading: true,
+                error: null,
+                message: null
+            }
+            break;
+        case authConstraints.GET_ALL_ADDRESS_FAILED:
+            state = {
+                ...state,
+                loading: false,
+                error: payload
+            }
+            break;
+        case authConstraints.GET_ALL_ADDRESS_SUCCESS:
+            state = {
+                ...state,
+                loading: false,
+                addresses: payload?.data,
+                message: payload?.msg
+            }
+            break;
+
+        //Add New Address
+        case authConstraints.ADD_NEW_ADDRESS_REQUEST:
+            state = {
+                ...state,
+                loading: true,
+                error: null,
+                message: null
+            }
+            break;
+        case authConstraints.ADD_NEW_ADDRESS_FAILED:
+            state = {
+                ...state,
+                loading: false,
+                error: payload
+            }
+            break;
+        case authConstraints.ADD_NEW_ADDRESS_SUCCESS:
+            state = {
+                ...state,
+                loading: false,
+                addresses: payload?.data,
+                message: payload?.msg
+            }
+            break;
         default:
 
     }
