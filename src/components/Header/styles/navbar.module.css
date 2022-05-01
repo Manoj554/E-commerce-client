@@ -80,7 +80,7 @@
     display: none;
     box-shadow: 0 1px 10px rgba(0,0,0,.08);
     width: 536px;
-    
+    z-index: 20;
     background-color: white;
     color: black;
     text-align: left;
@@ -90,7 +90,6 @@
 }
 .suggestion div{
     cursor: pointer;
-    z-index: 20;
     padding: 10px;
 }
 .suggestion div:hover{
