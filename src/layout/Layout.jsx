@@ -5,23 +5,24 @@ import Snackbar from '../components/SnackBar';
 import Nprogress from 'nextjs-progressbar';
 import Navbar from '../components/Header/Navbar';
 import { getAllCategories, getAllProducts, getCartDetailsAction } from '../redux/actions';
+import store from '../redux/store';
 
 const Layout = ({ children }) => {
-    const { auth, category, product, cart } = useSelector(state => state);
+    const { auth, category, product, cart, order } = useSelector(state => state);
     const [error, setError] = useState('');
 
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getAllCategories());
-        // dispatch(getAllProducts());
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         if (auth.authenticate) {
             dispatch(getCartDetailsAction());
         }
-    }, [auth.authenticate]);
+
+    }, [auth.authenticate, dispatch]);
 
     useEffect(() => {
         if (auth.error) {
@@ -30,15 +31,17 @@ const Layout = ({ children }) => {
             setError(category.error);
         } else if (product.error) {
             setError(product.error);
-        } else {
+        } else if (cart.error) {
             setError(cart.error);
+        } else {
+            setError(order.error)
         }
 
-    }, [auth.error, category.error, product.error, cart.error]);
+    }, [auth.error, category.error, product.error, cart.error, order.error]);
 
     return (
         <div>
-            {/* {console.log(cart)} */}
+            {/* {console.log(store.getState())} */}
             <Nprogress
                 height={3}
                 color="white"

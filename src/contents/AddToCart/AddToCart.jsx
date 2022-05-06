@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProductsFromCartAction } from '../../redux/actions';
 import PriceBox from './PriceBox';
 import Link from 'next/link';
+import Loader from '../../components/Loader/Loader';
+
 const AddToCart = () => {
     const { cart, cartList, cartProducts, loading } = useSelector(state => state.cart);
     const auth = useSelector(state => state.auth);
@@ -21,6 +23,7 @@ const AddToCart = () => {
 
     return (
         <>
+            {loading && <Loader />}
             {cartProducts.length > 0 ? (
                 <div className={styles.maindiv}>
                     <div className={styles.orderbox}>

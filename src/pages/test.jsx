@@ -1,14 +1,18 @@
-import React from 'react';
-import Wishlist from '../contents/Wishlist/Wishlist';
-import AddToCart from '../contents/AddToCart/AddToCart';
-import PlaceOrder from '../contents/PlaceOrder/PlaceOrderMainPage';
-import OrderPlaced from '../contents/OrderPlaced/OrderPlaced';
+import React, { useEffect, useState } from 'react'
 
 const test = () => {
+
+    const [time, setTime] = useState('');
+
+    useEffect(() => {
+        setTime(state => new Date().toString());
+    }, [time]);
+
     return (
         <div>
-            {/* <AddToCart /> */}
-            <OrderPlaced />
+            {/* Count IS {count}
+            <button onClick={handleCount}>Click me</button> */}
+            Time {time}
         </div>
     )
 }

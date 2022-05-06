@@ -18,7 +18,7 @@ const PriceBox = ({ place, setAmount, placeOrder }) => {
 
     const handlePlaceOrder = () => {
         placeOrder();
-        router.push('/orderplaced');
+        // router.push('/orderplaced');
     }
 
     const calculateTotalAmount = (productArr) => {
