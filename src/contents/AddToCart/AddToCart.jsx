@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProductsFromCartAction } from '../../redux/actions';
 import PriceBox from './PriceBox';
 import Link from 'next/link';
+import CardEmpty from '../../components/CartEmpty/CardEmpty';
 const AddToCart = () => {
     const { cart, cartList, cartProducts, loading } = useSelector(state => state.cart);
     const auth = useSelector(state => state.auth);
@@ -57,7 +58,7 @@ const AddToCart = () => {
                 </div>
 
             ) : (
-                <h1>Cart Is Empty </h1>
+                <CardEmpty/>
             )}
         </>
     )

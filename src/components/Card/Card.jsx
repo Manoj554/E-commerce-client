@@ -48,7 +48,7 @@ const Card = ({ l, id, base64, name, price, priceOffered, discount, wish, delete
 					</Link>
 					<div className={styles.buttondiv}>
 						<div className={wish ? styles.edit : styles.delete}>
-							<button onClick={handleADC.bind(this, id)} ><AiFillHeart /> Wishlist</button>
+							<button onClick={handleADC.bind(this, id)} ><AiFillHeart /> {!wish ? "Wishlist" : "Remove"}</button>
 						</div>
 						{/* <div className={styles.edit}>
 							<button onClick={handleADC.bind(this, id)}><BsCart3 /> Add to cart</button>

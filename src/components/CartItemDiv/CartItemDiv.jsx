@@ -19,7 +19,9 @@ const CartItemDiv = ({ l, id, base64, name, price, priceOffered, discount, quant
     return (
         <div className={styles.maindiv}>
             <div className={styles.headerdiv}>
+                <div className={styles.imgdiv}>
                 <img src={base64} />
+                </div>
                 <div className={styles.details}>
                     <p>{name}</p>
                     <div className={`${styles.detailsseller} ${styles.detailsgrey}`}>Category: Kriska Creation</div>

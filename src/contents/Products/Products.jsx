@@ -5,6 +5,7 @@ import styles from './products.module.css';
 import Card from '../../components/Card/Card';
 import SideBar from '../../components/SideBar/SideBar';
 import { useDispatch, useSelector } from 'react-redux';
+import { getAllProducts } from '../../redux/actions';
 
 const Products = () => {
     const { filter, allProducts, products, loading, subCategory } = useSelector(state => state.product);
@@ -12,6 +13,7 @@ const Products = () => {
     const [result, setResult] = useState('');
     const router = useRouter();
     const { search } = router.query;
+    const dispatch = useDispatch();
 
     const Mapping = (arr) => {
         let listarr = wishList.map(data => data.productId);
@@ -31,6 +33,10 @@ const Products = () => {
             </div>
         ));
     }
+
+    useEffect(()=>{
+        dispatch(getAllProducts());
+    },[]);
 
     return (
         <>
