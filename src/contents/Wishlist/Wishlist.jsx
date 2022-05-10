@@ -22,10 +22,10 @@ const Wishlist = () => {
 
     return (
         <div>
-            {products.length==0 && <WishEmpty/>}
+            {products.length == 0 && <WishEmpty />}
             <div className={styles.maindiv}>
                 {loading ? <Loader /> :
-                    products.length > 0 &&  (
+                    products.length > 0 && (
                         products.map((val) => (
                             <Card
                                 key={val.id}
@@ -39,7 +39,7 @@ const Wishlist = () => {
                                 discount={val.percentageOff}
                             />
                         ))
-                    ) }
+                    )}
             </div>
         </div>
     )

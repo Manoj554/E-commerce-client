@@ -39,10 +39,8 @@ export const signOutAction = () => async (dispatch) => {
     dispatch({ type: authConstraints.SIGNOUT_REQUEST });
 
     try {
-        console.log('i am signout');
         const { data } = await api.signOutApi();
         await axios.get('/api/logout');
-        alert(data.msg);
         dispatch({ type: authConstraints.SIGNOUT_SUCCESS });
     } catch (error) {
         let msg = errorMessage(error);

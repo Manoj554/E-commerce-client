@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { AiOutlineCheck } from 'react-icons/ai';
 import styles from './placeordermainpage.module.css';
-import DeliveryAddressForm from '../../components/DeliveryAddressForm/DeliveryAddressForm';
 import AddAddressDiv from '../../components/DeliveryAddressForm/AddAddressDiv';
-import CartItemDiv from '../../components/CartItemDiv/CartItemDiv';
 import PaymentOptions from '../../components/PaymentOptions/PaymentOptions';
 import PriceBox from '../AddToCart/PriceBox';
 import { useDispatch, useSelector } from 'react-redux';
@@ -38,10 +36,12 @@ const PlaceOrderMainPage = () => {
                         <div className={styles.plcordrdetails}>
                             <button>1</button>
                             <div className={styles.plcordrname}>DELIVERY ADDRESS <h3><AiOutlineCheck /></h3></div>
-                            <p>{addressVal.name} <strong>{addressVal.phone}</strong>
-                                <br />
-                                {addressVal.address} <b>{addressVal.pincode}</b>
-                            </p>
+                            {Object.keys(addressVal).length > 0 ? (
+                                <p>{addressVal.name} <strong>{addressVal.phone}</strong>
+                                    <br />
+                                    {addressVal.address} <b>{addressVal.pincode}</b>
+                                </p>
+                            ) : <p>No Address Selected</p>}
                         </div>
                         <div className={styles.changebtn}>
                             <button onClick={() => setDeliveryOption(true)}>CHANGE</button>

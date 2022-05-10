@@ -39,7 +39,7 @@ const AddAddressDiv = ({ setShow, setAddressVal }) => {
                         <span>{deliveryType}</span>
                         {phone}
                     </div>
-                    <div className={styles.edit} onClick={handleEdit.bind(this, id)}>EDIT</div>
+                    {/* <div className={styles.edit} onClick={handleEdit.bind(this, id)}>EDIT</div> */}
                 </div>
                 <div className={styles.scndline}>
                     {address} <div>

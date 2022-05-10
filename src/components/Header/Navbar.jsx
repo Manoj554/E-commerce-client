@@ -79,10 +79,10 @@ const Navbar = () => {
                                     </>
                                 ) : (
                                     <>
-                                        <Link href="/signin">
+                                        <Link href="/signin" passHref>
                                             <button className={style.login}>LOGIN</button>
                                         </Link>
-                                        <Link href="/signup">
+                                        <Link href="/signup" passHref>
                                             <button className={style.signup}>SIGNUP</button>
                                         </Link>
                                     </>
@@ -91,23 +91,27 @@ const Navbar = () => {
                             <div className={style.dropdown_content}>
                                 Orders
                             </div>
-                            <div className={style.dropdown_content}>
-                                Wishlist
-                            </div>
+
+                            <Link href="/wishlist">
+                                <div className={style.dropdown_content}>
+                                    Wishlist
+                                </div>
+                            </Link>
+
 
                         </div>
                         {/* )}*/}
 
                     </div>
                     <div className={style.contentlogin}>
-                        <Link href='/wishlist'>
+                        <Link href='/wishlist' passHref>
                             <Badge badgeContent={wishList?.length} color="primary">
                                 <a className={`${style.log} ${style.heart}`}><FaHeart /></a>
                             </Badge>
                         </Link>
                     </div>
                     <div className={style.contentlogin}>
-                        <Link href="/cart">
+                        <Link href="/cart" passHref>
                             <Badge badgeContent={cartList?.length} color="warning">
                                 <a className={style.log}><FaShoppingCart /></a>
                             </Badge>
