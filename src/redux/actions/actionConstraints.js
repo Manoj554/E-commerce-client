@@ -18,7 +18,7 @@ export const authConstraints = {
     USER_LOGGEDIN: "USER_LOGGEDIN",
     USER_NOT_FOUND: "USER_NOT_FOUND"
 
-}
+};
 
 export const categoryConstraints = {
     GET_ALL_CATEGORY_REQUEST: "GET_ALL_CATEGORY_REQUEST",

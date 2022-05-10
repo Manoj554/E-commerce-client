@@ -16,7 +16,7 @@ const OrderPlaced = () => {
             <FcApproval size={100} />
           </div>
           <div className={styles.para1}>
-            Congraluations<p>Your order {orderId} is placed and confirmed.</p>
+            Congraluations<p>Your order <span className={styles.orderId}>{orderId}</span> is placed and confirmed.</p>
           </div>
           <div className={styles.para2}>
             Thankyou for choosing to shop with us.<p>We hope you enjoyed shopping with Cartany.</p>

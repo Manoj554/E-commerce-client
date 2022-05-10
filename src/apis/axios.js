@@ -1,5 +1,5 @@
 import axios from "axios";
-// import { signOutAction } from "../redux/actions";
+import { signOutAction } from "../redux/actions";
 import store from '../redux/store';
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -18,9 +18,10 @@ API.interceptors.response.use((res) => {
 }, (err) => {
     if (err.response) {
         // alert(err.response.data.msg);
-        // if (err.response.status === 401) {
-        //     store.dispatch(signOutAction());
-        // }
+        if (err.response.status === 401) {
+            console.log('I am trying to logout');
+            store.dispatch(signOutAction());
+        }
         if (err.response.status === 413) {
             alert("File size should be less than '5MB'.");
         }

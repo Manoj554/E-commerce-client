@@ -7,7 +7,7 @@ export const setPriceAmount = (obj) => async (dispatch) => {
     dispatch({ type: orderConstraints.SET_PRICE, payload: obj });
 }
 
-export const placeOrderAction = (obj) => async (dispatch) => {
+export const placeOrderAction = (obj, router) => async (dispatch) => {
     dispatch({ type: orderConstraints.PLACE_ORDER_REQUEST });
 
     try {
@@ -17,6 +17,7 @@ export const placeOrderAction = (obj) => async (dispatch) => {
                 data: data?.orderDetails, msg: data?.msg
             }
         });
+        router.push('/orderplaced');
     } catch (error) {
         let msg = errorMessage(error);
         dispatch({ type: orderConstraints.PLACE_ORDER_FAILED, payload: msg });

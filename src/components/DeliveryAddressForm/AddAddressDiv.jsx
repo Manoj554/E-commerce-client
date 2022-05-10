@@ -13,7 +13,7 @@ const AddAddressDiv = ({ setShow, setAddressVal }) => {
 
     useEffect(() => {
         dispatch(getAllAddress());
-    }, []);
+    }, [dispatch]);
 
     const getRadioValue = (e) => {
         setAddress(e.target.value);
@@ -24,7 +24,11 @@ const AddAddressDiv = ({ setShow, setAddressVal }) => {
         setShow(false);
     }
 
-    const DeliveryBox = ({ id, name, phone, address, pincode, val }) => {
+    const handleEdit = (val) => {
+
+    }
+
+    const DeliveryBox = ({ id, name, phone, address, pincode, val, deliveryType }) => {
         return (
             <div className={styles.body}>
                 <div className={styles.radiobtn}>
@@ -32,10 +36,10 @@ const AddAddressDiv = ({ setShow, setAddressVal }) => {
                 </div>
                 <div className={styles.addrfrstline}>
                     <div className={styles.frstlinevalue}>{name}
-                        <span>WORK</span>
+                        <span>{deliveryType}</span>
                         {phone}
                     </div>
-                    <div className={styles.edit}>EDIT</div>
+                    <div className={styles.edit} onClick={handleEdit.bind(this, id)}>EDIT</div>
                 </div>
                 <div className={styles.scndline}>
                     {address} <div>
@@ -70,6 +74,7 @@ const AddAddressDiv = ({ setShow, setAddressVal }) => {
                             phone={val.phone}
                             address={val.address}
                             pincode={val.pincode}
+                            deliveryType={val.deliveryType}
                         />
                     ))
                 ) : (

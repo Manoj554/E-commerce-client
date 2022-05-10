@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import { AiOutlineCheck } from 'react-icons/ai';
 import styles from './placeordermainpage.module.css';
 import DeliveryAddressForm from '../../components/DeliveryAddressForm/DeliveryAddressForm';
@@ -17,19 +18,20 @@ const PlaceOrderMainPage = () => {
     const [amount, setAmount] = useState(0);
     const dispatch = useDispatch();
     const { priceDetails } = useSelector(state => state.order);
+    const router = useRouter();
 
     const placeOrder = () => {
         let obj = {
             amount: priceDetails.finalPrice, addressId: addressVal._id
         }
-        dispatch(placeOrderAction(obj));
+        dispatch(placeOrderAction(obj, router));
         dispatch(getCartDetailsAction());
     }
 
     return (
         <div className={styles.maindiv}>
             <div className={styles.orderbox}>
-                {console.log(priceDetails)}
+                {/* {console.log(priceDetails)} */}
                 {/* delivery address after filling details */}
                 {!showDeliveryOption ? (
                     <div className={styles.plcordrdiv}>
