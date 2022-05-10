@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addNewDeliveryAddress } from '../../redux/actions';
+import Loader from '../Loader/Loader';
 import styles from './deliveryaddressform.module.css';
 
 
 const DeliveryAddressForm = ({ setShow }) => {
-    const initialFormData = { name: '', phone: '', address: '', city: '', pincode: '', altPhone: '', email: '' };
+    const initialFormData = { name: '', phone: '', address: '', city: '', pincode: '', altPhone: '', email: '', deliveryType: '' };
     const [formData, setFormData] = useState(initialFormData);
     const dispatch = useDispatch();
+    const { loading } = useSelector(state => state.auth);
 
     const HandleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,6 +22,7 @@ const DeliveryAddressForm = ({ setShow }) => {
 
     return (
         <>
+            {loading && <Loader />}
             <div className={styles.plcordrdiv}>
 
                 <div className={styles.plcordrheader}>
@@ -54,8 +57,8 @@ const DeliveryAddressForm = ({ setShow }) => {
 
                     <div className={styles.inptadrstype}>
                         <p>Address Type</p>
-                        <input type="radio" name="radiohome" /><span>Home(All Day Delivery)</span>
-                        <input type="radio" name="radiowork" /><span>Work(Delivery between 10AM - 5PM)</span>
+                        <input type="radio" name="deliveryType" value="home" onClick={(e) => setFormData({ ...formData, deliveryType: e.target.value })} /><span>Home(All Day Delivery)</span>
+                        <input type="radio" name="deliveryType" value="work" onClick={(e) => setFormData({ ...formData, deliveryType: e.target.value })} /><span>Work(Delivery between 10AM - 5PM)</span>
                     </div>
 
                     <div className={styles.btsavehere}>

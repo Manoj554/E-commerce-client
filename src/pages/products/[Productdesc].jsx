@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+/* eslint-disable @next/next/no-img-element */
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './productdesc.module.css';
 import { BsCart3 } from "react-icons/bs";
 import { AiFillHeart } from "react-icons/ai";
@@ -18,7 +20,7 @@ const Productdesc = ({ product }) => {
     const dispatch = useDispatch();
     const router = useRouter();
 
-    useState(() => {
+    useEffect(() => {
         let list1 = cartList.map(val => val.productId);
         setCart(list1);
         let list2 = wishList.map(val => val.productId);
@@ -76,7 +78,7 @@ const Productdesc = ({ product }) => {
                         <div className={styles.buttondiv}>
                             <div className={styles.cart}>
                                 {itemsInCart.includes(product._id) ? (
-                                    <Link href="/cart">
+                                    <Link href="/cart" passHref>
                                         <button><BsCart3 /> Go To Cart</button>
                                     </Link>
                                 ) : (
@@ -94,7 +96,7 @@ const Productdesc = ({ product }) => {
                     </div>
 
                     <div className={styles.prodimg}>
-                        <img src={product.productImage} width="100%" height="100%" />
+                        <img alt='productImage' src={product.productImage} height="100%" width="100%" />
                     </div>
                 </div>
             </div>
