@@ -3,6 +3,7 @@ import { AiFillStar } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartAction, wishListAction } from '../../redux/actions';
 import styles from './cardwishlist.module.css';
+import Link from 'next/link';
 
 
 const Card = ({ l, id, base64, name, price, priceOffered, discount, iscart, deleteId, setDeleteId }) => {
@@ -21,10 +22,13 @@ const Card = ({ l, id, base64, name, price, priceOffered, discount, iscart, dele
         }
     }
     return (
-        <div className={styles.maindiv}>
+
+            <div className={styles.maindiv}>
+                        <Link href={`products/${id}?productName=${name}&id=${id}`}>
             <div className={styles.imgdiv}>
                 <img src={base64} />
             </div>
+            </Link>
             <div className={styles.descdiv}>
                 <div className={styles.branddiv}>{name}</div>
                 <div className={styles.typediv}> 4.3<span className={styles.star}><AiFillStar /></span>(1232)</div>
@@ -45,6 +49,7 @@ const Card = ({ l, id, base64, name, price, priceOffered, discount, iscart, dele
                 )}
             </div>
         </div>
+        
     )
 }
 

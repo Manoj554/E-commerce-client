@@ -25,16 +25,9 @@ const DeliveryAddressForm = ({ setShow }) => {
             {loading && <Loader />}
             <div className={styles.plcordrdiv}>
 
-                <div className={styles.plcordrheader}>
-                    <button>1</button>
-                    <div className={styles.plcordrname}>DELIVERY ADDRESS</div>
-                </div>
+                
 
                 <form autoComplete='off' onSubmit={handleSubmit} className={styles.body}>
-                    <div className={styles.addnewadrsradiobtn}>
-                        <input type="radio" name="radioaddress" />
-                        <span>ADD A NEW ADDRESS</span>
-                    </div>
 
                     <div className={styles.inptname}>
                         <input type="text" name='name' required placeholder='Name' value={formData.name} onChange={HandleChange} />
@@ -63,7 +56,7 @@ const DeliveryAddressForm = ({ setShow }) => {
 
                     <div className={styles.btsavehere}>
                         <button>SAVE AND DELIVER HERE</button>
-                        <button className={styles.cancelbtn} onClick={() => setShow(false)}>Cancel</button>
+                        <button className={styles.cancelbtn} onClick={() => setShow(false)}>CANCEL</button>
                     </div>
                 </form>
             </div>

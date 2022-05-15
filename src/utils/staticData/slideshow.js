@@ -1,9 +1,13 @@
-import img1 from '../images/phonesale.jpg';
-import img2 from '../images/laptop.jpg';
-import img3 from '../images/clothing.jpg';
-import img4 from '../images/dinningtable.jpg';
-import img5 from '../images/booksale.jpg';
+ 
+
+import img3 from '../images/clothessale.jpg';
+import img6 from '../images/menshirtsale.jpg';
+import img4 from '../images/furnituresale.jpg';
+import img5 from '../images/womansale.png';
+import img7 from '../images/sale.jpg';
+
+
 
 export const slideshowData = [
-    img1, img2, img3, img4, img5
+    img3, img4, img5, img6, img7
 ]
