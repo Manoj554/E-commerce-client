@@ -88,9 +88,7 @@ const Navbar = () => {
                                     </>
                                 )}
                             </div>
-                            <div className={style.dropdown_content}>
-                                Orders
-                            </div>
+                            
 
                             <Link href="/wishlist">
                                 <div className={style.dropdown_content}>
