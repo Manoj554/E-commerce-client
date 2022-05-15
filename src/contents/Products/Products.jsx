@@ -34,9 +34,9 @@ const Products = () => {
         ));
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getAllProducts());
-    },[]);
+    }, [dispatch]);
 
     return (
         <>
@@ -61,7 +61,8 @@ const Products = () => {
                         )
                         }
                     </div>
-                    {!loading && (products.length == 0 && allProducts.length == 0) && filter && (
+
+                    {!loading && ((products.length == 0 && allProducts.length == 0) || (filter && products.length == 0)) && (
                         <p className={styles.noproduct}>No Product Available:😕😕😕</p>
                     )}
                 </div>
