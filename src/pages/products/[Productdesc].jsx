@@ -109,7 +109,7 @@ export default Productdesc;
 export async function getServerSideProps(context) {
     // Fetch data from external API
     const id = context.query.id;
-    const baseurl = process.env.NEXT_PUBLIC_BASE_URL;
+    const baseurl = process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL : process.env.NEXT_PUBLIC_LOCAL_BASE_URL;
     try {
         const { data } = await axios.get(`${baseurl}/product/get-product-info/${id}`);
         return { props: { product: data?.product } }
