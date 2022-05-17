@@ -42,7 +42,7 @@ const PlaceOrderMainPage = () => {
                             ) : <p>No Address Selected</p>}
                         </div>
                         <div className={styles.changebtn}>
-                            <button onClick={() => setDeliveryOption(true)}> {Object.keys(addressVal).length >= 0 ? 'CHANGE' : 'Select Address'}</button>
+                            <button onClick={() => setDeliveryOption(true)}> {Object.keys(addressVal).length > 0 ? 'CHANGE' : 'Select Address'}</button>
                         </div>
                     </div>
                 ) : (

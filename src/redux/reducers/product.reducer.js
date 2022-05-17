@@ -156,7 +156,8 @@ const productReducers = (state = initialState, action) => {
                 message: payload?.msg,
                 allProducts: payload?.data,
                 subCategory: payload?.subCategory,
-                backupProducts: payload?.data
+                backupProducts: payload?.data,
+                filter: false
             };
             break;
 

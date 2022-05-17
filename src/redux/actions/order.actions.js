@@ -13,12 +13,12 @@ export const placeOrderAction = (obj, router) => async (dispatch) => {
 
     try {
         const { data } = await api.placeOrderApi(obj);
+        dispatch(getCartDetailsAction());
         dispatch({
             type: orderConstraints.PLACE_ORDER_SUCCESS, payload: {
                 data: data?.orderDetails, msg: data?.msg
             }
         });
-        getCartDetailsAction();
         router.push('/orderplaced');
     } catch (error) {
         let msg = errorMessage(error);

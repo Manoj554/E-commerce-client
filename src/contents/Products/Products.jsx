@@ -44,10 +44,10 @@ const Products = () => {
             <div className={styles.flexbox}>
                 <SideBar category={subCategory} setResult={setResult} />
                 <div className={styles.contentbox}>
-                    <p className={styles.msgbox}>
+                    {/* <p className={styles.msgbox}>
                         Showing result for :
                         {result ? `${result}` : search != undefined ? ` ${search}` : ` All Products`}
-                    </p>
+                    </p> */}
                     <div className={styles.galdiv}>
                         {loading ? (
                             <>
@@ -57,7 +57,7 @@ const Products = () => {
                                 <Card l />
                             </>
                         ) : (
-                            search != undefined && filter ? Mapping(products) : Mapping(allProducts)
+                            filter ? Mapping(products) : Mapping(allProducts)
                         )
                         }
                     </div>
