@@ -48,5 +48,6 @@ export const getAllAddresssApi = () => API.get('/auth/get-all-address');
 
 export const placeOrderApi = (data) => API.post('/order/place-order', data);
 
+export const getMyOrdersApi = () => API.get('/order/get-my-orders');
 
 

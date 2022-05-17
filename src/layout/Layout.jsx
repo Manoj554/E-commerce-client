@@ -41,7 +41,7 @@ const Layout = ({ children }) => {
 
     return (
         <div>
-            {/* {console.log(store.getState())} */}
+            {console.log(error)}
             <Nprogress
                 height={3}
                 color="white"

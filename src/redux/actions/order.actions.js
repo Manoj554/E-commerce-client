@@ -25,3 +25,19 @@ export const placeOrderAction = (obj, router) => async (dispatch) => {
         dispatch({ type: orderConstraints.PLACE_ORDER_FAILED, payload: msg });
     }
 }
+
+export const getMyOrdersAction = () => async dispatch => {
+    dispatch({ type: orderConstraints.GET_MY_ORDER_REQUEST });
+
+    try {
+        const { data } = await api.getMyOrdersApi();
+        dispatch({
+            type: orderConstraints.GET_MY_ORDER_SUCCESS, payload: {
+                data: data?.orders, msg: data?.msg
+            }
+        });
+    } catch (error) {
+        let msg = errorMessage(error);
+        dispatch({ type: orderConstraints.GET_MY_ORDER_FAILED, payload: msg });
+    }
+}

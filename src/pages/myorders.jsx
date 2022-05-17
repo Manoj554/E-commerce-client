@@ -5,7 +5,7 @@ import MyOrders from '../contents/MyOrders/MyOrders'
 const myorders = () => {
   return (
     <PrivateRoute>
-            <MyOrders />
+      <MyOrders />
     </PrivateRoute>
   )
 }

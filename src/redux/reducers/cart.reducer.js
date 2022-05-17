@@ -78,6 +78,7 @@ const cartReducer = (state = initialState, action) => {
                 message: null
             };
             break;
+
         case cartConstraints.WISHLIST_ACTION_FAILED:
             state = {
                 ...state,

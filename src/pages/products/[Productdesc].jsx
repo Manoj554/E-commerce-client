@@ -25,7 +25,6 @@ const Productdesc = ({ product }) => {
         setCart(list1);
         let list2 = wishList.map(val => val.productId);
         setWish(list2);
-        console.log('i am working');
     }, [state, cart, cartList, wishList]);
 
 
