@@ -57,7 +57,7 @@ const Products = () => {
                                 <Card l />
                             </>
                         ) : (
-                            search == undefined && !filter ? Mapping(allProducts) : Mapping(products)
+                            search != undefined && filter ? Mapping(products) : Mapping(allProducts)
                         )
                         }
                     </div>
