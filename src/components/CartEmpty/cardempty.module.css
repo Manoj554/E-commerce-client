@@ -53,3 +53,10 @@
 .shopnow .pink:hover{
     background-color: rgb(193, 10, 74);
 }
+
+.shopnow .green{
+    background-color: rgb(24, 188, 65);
+}
+.shopnow .green:hover{
+    background-color: rgb(9, 143, 42);
+}

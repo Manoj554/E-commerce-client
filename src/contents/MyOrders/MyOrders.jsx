@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import NoOrders from '../../components/CartEmpty/NoOrders';
 import OrderCard from '../../components/OrderCard/OrderCard'
 import OrderTemplate from '../../components/OrderCard/OrderTemplate';
 import { getMyOrdersAction } from '../../redux/actions';
@@ -35,7 +36,9 @@ const MyOrders = () => {
             ))}
           </>
         </div>
-      ) : <p>No Orders Available</p>}
+      ) : (
+        <NoOrders/>
+      )}
     </>
   )
 }

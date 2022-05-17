@@ -1,17 +1,19 @@
 import React, { useState } from 'react'
 import OrderCard from './OrderCard'
+import styles from './ordertemplates.module.css';
 
 const OrderTemplate = ({ orderId, orderAmount, orderDate, deliveredBy, products, orderStatus }) => {
     const [viewProducts, setViewProducts] = useState(false);
 
     return (
         <div>
-            <div style={{ border: '1px solid black', width: '100%', padding: '1rem', margin: '2rem 0', display: 'flex', justifyContent: 'space-evenly' }}>
-                <p>{orderId}</p>
-                <p>{orderAmount}</p>
-                <p>{orderDate}</p>
-                <p>{deliveredBy}</p>
-                <p>{orderStatus}</p>
+            <div className={styles.maindiv}>
+
+                <p className={styles.Id}><span className={styles.bold}>Order ID</span> : <span className={styles.ID}>{orderId}</span></p>
+                <p><span className={styles.bold}>Total Amount</span> : ₹{orderAmount}</p>
+                <p><span className={styles.bold}>On</span>  {orderDate}</p>
+                <p><span className={styles.bold}>By</span>  {deliveredBy}</p>
+                <p className={styles.pending}>{orderStatus}</p>
                 <button onClick={() => setViewProducts(prev => !prev)}>{viewProducts ? 'hide' : 'view'} products</button>
             </div>
             {

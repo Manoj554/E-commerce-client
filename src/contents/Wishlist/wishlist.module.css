@@ -4,7 +4,8 @@
 	justify-items: center;
 	grid-row-gap: 2rem;
 	padding-bottom: 2rem;
-    background-color: rgb(249, 246, 246);
+    background-color: whitesmoke;
+	padding:20px 15px;
 }
 @media screen and (max-width: 1430px) {
 	.maindiv {

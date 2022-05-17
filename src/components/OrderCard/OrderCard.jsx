@@ -13,7 +13,7 @@ const OrderCard = ({ quantity, price, productImage, productName, deliveredBy }) 
                     {productName}
                 </div>
                 <div className={styles.pricediv}>
-                    {price} X {quantity}
+                    ₹{price} x (qty){quantity}
                 </div>
                 <div className={styles.statusdiv}>
                     <span className={styles.greentick}>✓</span> Delivery by {deliveredBy}
