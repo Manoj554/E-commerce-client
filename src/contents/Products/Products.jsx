@@ -63,7 +63,7 @@ const Products = () => {
                     </div>
 
                     {!loading && ((products.length == 0 && allProducts.length == 0) || (filter && products.length == 0)) && (
-                        <p className={styles.noproduct}>No Product Available:😕😕😕</p>
+                        <p className={styles.noproduct}>No Products Available ⚠️ 😕</p>
                     )}
                 </div>
             </div>

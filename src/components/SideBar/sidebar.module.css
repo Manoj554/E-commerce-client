@@ -39,6 +39,7 @@
 
 .checkboxes input {
     cursor: pointer;
+    color: blue;
     width: 17px;
     height: 17px;
     margin-right: 7px;
