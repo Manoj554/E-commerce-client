@@ -4,6 +4,8 @@ export const signUpApi = (data) => API.post('/auth/signup', data);
 
 export const signInApi = (data) => API.post('/auth/signin', data);
 
+export const googleSignInApi = (data) => API.post('/auth/google-signin', data);
+
 export const signOutApi = () => API.get('/auth/signout');
 
 export const getUserInfoApi = () => API.get('/auth/get-user-info');

@@ -7,6 +7,7 @@ const initialState = {
     user: null,
     authenticate: false,
     addresses: [],
+    pathName: '/',
 }
 
 const authReducer = (state = initialState, action) => {
@@ -65,6 +66,33 @@ const authReducer = (state = initialState, action) => {
             }
             break;
 
+        //Google Signin
+        case authConstraints.GOOGLE_SIGNIN_REQUEST:
+            state = {
+                ...state,
+                loading: true,
+                error: null,
+                message: null
+            }
+            break;
+        case authConstraints.GOOGLE_SIGNIN_FAILED:
+            state = {
+                ...state,
+                loading: false,
+                error: payload,
+                authenticate: false
+            }
+            break;
+        case authConstraints.GOOGLE_SIGNIN_SUCCESS:
+            state = {
+                ...state,
+                loading: false,
+                authenticate: true,
+                message: payload?.msg,
+                user: payload?.data
+            }
+            break;
+
         //Signout
         case authConstraints.SIGNOUT_REQUEST:
             state = {
@@ -93,7 +121,8 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 loading: true,
                 error: null,
-                message: null
+                message: null,
+                pathName: payload
             }
             break;
         case authConstraints.USER_NOT_FOUND:

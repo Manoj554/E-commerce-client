@@ -1,6 +1,7 @@
 import { orderConstraints } from "./actionConstraints"
 import * as api from '../../apis/apis';
 import { errorMessage } from "./actionHelper";
+import { getCartDetailsAction } from "./cart.actions";
 
 
 export const setPriceAmount = (obj) => async (dispatch) => {
@@ -17,6 +18,7 @@ export const placeOrderAction = (obj, router) => async (dispatch) => {
                 data: data?.orderDetails, msg: data?.msg
             }
         });
+        getCartDetailsAction();
         router.push('/orderplaced');
     } catch (error) {
         let msg = errorMessage(error);

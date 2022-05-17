@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import styles from './card.module.css';
 import { AiFillHeart } from "react-icons/ai";
@@ -6,9 +7,12 @@ import { useRouter } from 'next/router';
 import { Skeleton } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { wishListAction } from '../../redux/actions';
+import ThreeDotAnimation from '../Loader/ThreeDotAnimation';
+import Loader from '../Loader/Loader';
 
-const Card = ({ l, id, base64, name, price, priceOffered, discount, wish, deleteId, setDeleteId }) => {
+const Card = ({ l, id, base64, name, price, priceOffered, discount, wish, }) => {
 	const dispatch = useDispatch();
+	const { loading } = useSelector(state => state.cart);
 
 	const handleADC = (id) => {
 		dispatch(wishListAction(id));
@@ -32,7 +36,7 @@ const Card = ({ l, id, base64, name, price, priceOffered, discount, wish, delete
 		return (
 			<>
 				<div className={styles.card} key={id}>
-					<Link href={`products/${id}?productName=${name}&id=${id}`}>
+					<Link href={`products/${id}?productName=${name}&id=${id}`} passHref>
 						<div>
 							<div className={styles.imgdiv}>
 								<img src={base64} alt='product image' />
@@ -48,11 +52,13 @@ const Card = ({ l, id, base64, name, price, priceOffered, discount, wish, delete
 					</Link>
 					<div className={styles.buttondiv}>
 						<div className={wish ? styles.edit : styles.delete}>
-							<button onClick={handleADC.bind(this, id)} ><AiFillHeart /> {!wish ? "Wishlist" : "Remove"}</button>
+							<button onClick={handleADC.bind(this, id)} >{loading ? <Loader /> : (
+								<>
+									<AiFillHeart />
+									{!wish ? "Wishlist" : "Remove"}
+								</>
+							)}</button>
 						</div>
-						{/* <div className={styles.edit}>
-							<button onClick={handleADC.bind(this, id)}><BsCart3 /> Add to cart</button>
-						</div> */}
 					</div>
 				</div>
 			</>

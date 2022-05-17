@@ -19,7 +19,6 @@ API.interceptors.response.use((res) => {
     if (err.response) {
         // alert(err.response.data.msg);
         if (err.response.status === 401) {
-            console.log('I am trying to logout');
             store.dispatch(signOutAction());
         }
         if (err.response.status === 413) {

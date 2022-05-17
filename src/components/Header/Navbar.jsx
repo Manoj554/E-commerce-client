@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState } from 'react';
 import style from './styles/navbar.module.css';
 import Link from 'next/link';
@@ -44,7 +45,7 @@ const Navbar = () => {
         <>
             <div className={style.maindiv}>
                 <Link href="/" passHref>
-                    <div className={style.contentlogo}><img src="/Cartany_old_white_crop.png" /></div>
+                    <div className={style.contentlogo}><img src="/Cartany_old_white_crop.png" alt='cartImage' /></div>
                 </Link>
                 <div className={style.spacediv}></div>
                 <div className={style.right}>
@@ -88,9 +89,9 @@ const Navbar = () => {
                                     </>
                                 )}
                             </div>
-                            
 
-                            <Link href="/wishlist">
+
+                            <Link href="/wishlist" passHref>
                                 <div className={style.dropdown_content}>
                                     Wishlist
                                 </div>

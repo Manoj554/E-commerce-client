@@ -48,14 +48,14 @@ export const signOutAction = () => async (dispatch) => {
     }
 }
 
-export const userLoggedInStatus = () => async (dispatch) => {
-    dispatch({ type: authConstraints.CHECKING_LOGIN_STATUS });
+export const userLoggedInStatus = (pathName) => async (dispatch) => {
+    dispatch({ type: authConstraints.CHECKING_LOGIN_STATUS, payload: pathName });
 
     try {
         const { data } = await api.getUserInfoApi();
         dispatch({
             type: authConstraints.USER_LOGGEDIN, payload: {
-                data: data?.user, msg: data?.msg
+                data: data?.user, msg: data?.msg,
             }
         });
     } catch (error) {
@@ -94,5 +94,22 @@ export const getAllAddress = () => async (dispatch) => {
     } catch (error) {
         let msg = errorMessage(error);
         dispatch({ type: authConstraints.GET_ALL_ADDRESS_FAILED, payload: msg });
+    }
+}
+
+export const googleSignInAction = (userData, router) => async dispatch => {
+    dispatch({ type: authConstraints.GOOGLE_SIGNIN_REQUEST });
+
+    try {
+        const { data } = await api.googleSignInApi(userData);
+        dispatch({
+            type: authConstraints.GOOGLE_SIGNIN_SUCCESS, payload: {
+                data: data?.user, msg: data?.msg
+            }
+        });
+        router.push('/products');
+    } catch (error) {
+        let msg = errorMessage(error);
+        dispatch({ type: authConstraints.GOOGLE_SIGNIN_FAILED, payload: msg });
     }
 }
