@@ -61,7 +61,7 @@ const AddAddressDiv = ({ setShow, setAddressVal }) => {
         <>
             <div className={styles.plcordrdiv}>
                 <div className={styles.plcordrheader}>
-                    <button>1</button>
+                    <span>1</span>
                     <div className={styles.plcordrname}>DELIVERY ADDRESS</div>
                 </div>
                 {addresses && addresses.length > 0 ? (

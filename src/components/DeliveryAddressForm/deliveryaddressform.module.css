@@ -100,11 +100,12 @@
     cursor: pointer;
     color: white;
     border: none;
+    border-radius: 3px;
 }
 
 .btsavehere button:hover {
     background-color: rgb(251, 89, 8);
-    font-weight: 550;
+     
 }
 
 .cancelbtn {
