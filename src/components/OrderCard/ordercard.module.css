@@ -1,0 +1,46 @@
+.maindiv{
+    margin: 15px auto;
+    display: flex;
+    width: 70%;
+    height: 150px;
+    padding: 10px;
+    box-shadow: 0px 0px 4px rgb(153, 153, 153);
+     
+     
+   
+     background-color: white;
+}
+.imgdiv{
+    width: 15%;
+    height: 100%;
+}
+.imgdiv img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.descdiv{
+    width: 30%;
+    white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis; 
+    padding: 20px 30px;
+    font-weight: 540;
+    
+    
+     
+}
+.pricediv{
+    width: 20%;
+    text-align: center;
+    padding: 20px;
+}
+.statusdiv{
+    width: 40%;
+    text-align: center;
+    padding: 20px;
+}
+.greentick{
+    color: rgb(66, 224, 18);
+    font-weight: 700;
+}

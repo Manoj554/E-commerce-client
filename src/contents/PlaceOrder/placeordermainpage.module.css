@@ -53,13 +53,14 @@
     font-weight: 549;
     border: 1px solid rgb(12, 77, 228);
     color: rgb(12, 77, 228);
-    border-radius: 7px;
+    border-radius: 4px;
+     
 }
 
 .changebtn button:hover {
     background-color: rgb(12, 77, 228);
     color: white;
-    border: none;
+    
 }
 
 /* pricebox css starts */

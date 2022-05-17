@@ -95,6 +95,11 @@ const Navbar = () => {
                                     Wishlist
                                 </div>
                             </Link>
+                            <Link href="/myorders">
+                                <div className={style.dropdown_content}>
+                                    My Orders
+                                </div>
+                            </Link>
 
 
                         </div>
