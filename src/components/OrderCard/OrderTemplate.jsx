@@ -14,7 +14,7 @@ const OrderTemplate = ({ orderId, orderAmount, orderDate, deliveredBy, products,
                 <p><span className={styles.bold}>On</span>  {orderDate}</p>
                 <p><span className={styles.bold}>By</span>  {deliveredBy}</p>
                 <p className={styles.pending}>{orderStatus}</p>
-                <button onClick={() => setViewProducts(prev => !prev)}>{viewProducts ? 'hide' : 'view'} products</button>
+                <button onClick={() => setViewProducts(prev => !prev)}>{viewProducts ? 'Hide products 👆' : 'View products 👇'} </button>
             </div>
             {
                 viewProducts && (
